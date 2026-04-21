@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沈黙町とアメル | ミュージカル『沈黙町とアメル～こだま町に響く覚悟の鐘音～』</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    .hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#0A0806; }
+    .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.15) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(139,26,26,0.4) 0%, transparent 50%); }
+    .hero-img { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:13px; color:rgba(255,255,255,0.2); letter-spacing:0.3em; }
+    .hero-content { position:relative; text-align:center; padding:20px; animation:fadeInUp 1.2s ease both; }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .hero-label { font-size:11px; letter-spacing:0.4em; color:var(--gold); margin-bottom:16px; text-transform:uppercase; }
+    .hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(36px,6vw,72px); font-weight:300; letter-spacing:0.2em; line-height:1.3; margin-bottom:8px; }
+    .hero-subtitle { font-family:'Cinzel',serif; font-size:clamp(14px,2vw,20px); color:var(--gold); letter-spacing:0.25em; margin-bottom:32px; }
+    .hero-date { font-size:13px; color:var(--text-muted); letter-spacing:0.15em; margin-bottom:40px; }
+    .hero-scroll { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-muted); font-size:10px; letter-spacing:0.3em; animation:bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+    .hero-scroll::after { content:''; display:block; width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); }
+    .news-list { border-top:1px solid rgba(201,168,76,0.2); }
+    .news-item { display:flex; align-items:baseline; gap:24px; padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; color:inherit; transition:color 0.3s; }
+    .news-item:hover { color:var(--gold); }
+    .news-date { font-size:12px; color:var(--gold); letter-spacing:0.1em; white-space:nowrap; min-width:90px; }
+    .news-tag { font-size:10px; border:1px solid var(--text-muted); color:var(--text-muted); padding:2px 8px; letter-spacing:0.1em; white-space:nowrap; }
+    .news-text { font-size:14px; }
+    .intro-section { background:var(--section-bg1); position:relative; overflow:hidden; }
+    .intro-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%); }
+    .intro-text { font-family:'Noto Serif JP',serif; font-size:15px; line-height:2.2; text-align:center; color:var(--text); max-width:700px; margin:0 auto 24px; font-weight:300; }
+    .story-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .story-image { aspect-ratio:3/4; background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:12px; letter-spacing:0.2em; overflow:hidden; }
+    .story-text-p { font-size:15px; line-height:2.2; color:var(--text-muted); }
+    .story-text-p p { margin-bottom:20px; }
+    .character-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .character-card { text-align:center; }
+    .character-photo { aspect-ratio:3/4; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15); margin-bottom:20px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; }
+    .character-role { font-size:10px; color:var(--gold); letter-spacing:0.3em; text-transform:uppercase; margin-bottom:4px; }
+    .character-name { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:400; margin-bottom:12px; }
+    .character-desc { font-size:13px; color:var(--text-muted); line-height:1.9; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .gallery-item { aspect-ratio:4/3; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; transition:transform 0.3s; }
+    .gallery-item:hover { transform:scale(1.02); }
+    .music-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .music-card { text-decoration:none; color:inherit; }
+    .music-thumb { aspect-ratio:16/9; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1); margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; }
+    .music-title-sm { font-family:'Noto Serif JP',serif; font-size:15px; color:var(--gold); margin-bottom:8px; }
+    .music-desc-sm { font-size:13px; color:var(--text-muted); line-height:1.8; }
+    .cast-grid-top { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .cast-card-top { text-align:center; }
+    .cast-photo-top { aspect-ratio:3/4; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.12); margin-bottom:14px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; overflow:hidden; }
+    .cast-role-top { font-size:10px; color:var(--gold); letter-spacing:0.2em; margin-bottom:4px; }
+    .cast-name-top { font-family:'Noto Serif JP',serif; font-size:15px; }
+    .staff-divider { border:none; border-top:1px solid rgba(201,168,76,0.25); margin:72px 0; position:relative; }
+    .staff-divider::after { content:''; position:absolute; top:-3px; left:50%; transform:translateX(-50%); width:40px; height:5px; background:var(--gold); opacity:0.5; }
+    .staff-summary { max-width:480px; margin:0 auto; }
+    .staff-summary-row { display:flex; align-items:baseline; gap:24px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:14px; }
+    .staff-summary-role { color:var(--text-muted); font-size:12px; letter-spacing:0.1em; min-width:110px; }
+    .staff-summary-name { color:var(--text); }
+    .ticket-box { background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.3); padding:60px 48px; text-align:center; }
+    .ticket-title { font-family:'Cinzel',serif; font-size:22px; color:var(--gold); letter-spacing:0.3em; margin-bottom:24px; }
+    .ticket-info { font-size:15px; color:var(--text-muted); line-height:2; margin-bottom:40px; }
+    .ticket-info strong { color:var(--text); }
+    .contact-top-box { text-align:center; border:1px solid rgba(201,168,76,0.25); background:rgba(201,168,76,0.04); padding:52px 40px; }
+    .contact-top-text { font-size:14px; color:var(--text-muted); line-height:2.2; margin-bottom:36px; }
+    @media (max-width:768px) {
+      .story-content,.character-grid,.music-grid,.cast-grid-top { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:repeat(2,1fr); }
+      .ticket-box,.contact-top-box { padding:36px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="header-logo">沈黙町とアメル</a>
+    <nav>
+      <ul>
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#story">STORY</a></li>
+        <li><a href="#character">CHARACTER</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#music">MUSIC</a></li>
+        <li><a href="#cast">CAST</a></li>
+        <li><a href="#staff">STAFF</a></li>
+        <li><a href="#ticket">TICKET</a></li>
+        <li><a href="#contact-top">CONTACT</a></li>
+      </ul>
+    </nav>
+    <a href="#ticket"  rel="noopener" class="btn-ticket">チケット購入</a>
+  </header>
+  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  <div class="mobile-menu">
+    <a href="#news">NEWS</a>
+    <a href="#story">STORY</a>
+    <a href="#character">CHARACTER</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#music">MUSIC</a>
+    <a href="#cast">CAST</a>
+    <a href="#staff">STAFF</a>
+    <a href="#contact-top">CONTACT</a>
+    <a href="#ticket" rel="noopener" class="menu-ticket">チケット購入</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-img">MAIN VISUAL Coming Soon HERE</div>
+    <div class="hero-content">
+      <p class="hero-label">Musical — 2026</p>
+      <h1 class="hero-title">沈黙町とアメル</h1>
+      <p class="hero-subtitle">～こだま町に響く覚悟の鐘音～</p>
+      <p class="hero-date">2026年7月5日（日）12:00〜 ／ 17:00〜<br>小牧市まなび創造館 あさひホール（ラピオ5F）</p>
+      <div>
+        <a href="#intro" class="btn-primary">作品について</a>
+        <a href="#ticket" class="btn-primary filled">チケット購入</a>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- NEWS -->
+  <section style="background:var(--dark2);" id="news">
+    <div class="section-inner">
+      <p class="section-label reveal">News</p>
+      <h2 class="section-title reveal">ニュース</h2>
+      <div class="news-list">
+        <a href="news.html" class="news-item">
+          <span class="news-date">20XX.XX.XX</span>
+          <span class="news-tag">お知らせ</span>
+          <span class="news-text">ニュースタイトルをここに記入</span>
+        </a>
+        <a href="news.html" class="news-item">
+          <span class="news-date">20XX.XX.XX</span>
+          <span class="news-tag">チケット</span>
+          <span class="news-text">チケット発売に関するお知らせ</span>
+        </a>
+        <a href="news.html" class="news-item">
+          <span class="news-date">20XX.XX.XX</span>
+          <span class="news-tag">公演情報</span>
+          <span class="news-text">公演に関するお知らせ</span>
+        </a>
+      </div>
+      <div class="text-center">
+        <a href="news.html" class="btn-more">ニュース一覧へ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro-section" id="intro">
+    <div class="section-inner">
+      <p class="section-label reveal">Introduction</p>
+      <h2 class="section-title reveal">はじめに</h2>
+      <div class="divider"></div>
+      <p class="intro-text">私たちは、学生主体でオリジナルミュージカルをゼロから制作しています。<br>誰かに「無理だよ」と言われたり、自分で自分の夢を笑ってしまったり。<br>大人になるほど、夢は"夢らしきもの"に変わっていくことがあります。</p>
+      <p class="intro-text">『沈黙町とアメル～こだま町に響く覚悟の鐘音～』は、音楽が禁じられた街「こだま町」を舞台に、<br>夢と現実の狭間で揺れる少年の物語です。<br>派手な熱狂ではなく、胸が締まるような静かな強さと、踏み出す意志を描きます。</p>
+      <p class="intro-text">この公演は「小牧市夢にチャレンジ助成金」採択プロジェクトとして制作を進めています。<br>小牧から生まれる"挑戦の物語"が、<br>あなたの中の小さな覚悟の音をもう一度鳴らすきっかけになりますように。</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section style="background:var(--section-bg2);" id="story">
+    <div class="section-inner">
+      <p class="section-label reveal">Story</p>
+      <h2 class="section-title reveal">ストーリー</h2>
+      <div class="story-content">
+        <div class="story-image">Coming Soon</div>
+        <div>
+          <div class="story-text-p">
+            <p>音楽が禁じられた街「こだま町」。歌うことも、奏でることも、楽しむことすら罪とされる世界で、少年ルーファスは<br>"音楽が好き"という気持ちを胸の奥に閉じ込めて生きてきた。夢はいつしか、夢らしきものに変わっていく。</p>
+            <p>ある日、音楽の精霊アメルとかつての音楽家イバンとの<br>出会いが、静かにルーファスの心を揺らし始める。<br>これは、"夢を見ること"の素晴らしさと、誰かの中に残る覚悟の鐘音をもう一度鳴らす物語。</p>
+          </div>
+          <a href="story.html" class="btn-more">もっと読む</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTER -->
+  <section style="background:var(--dark3);" id="character">
+    <div class="section-inner">
+      <p class="section-label reveal">Character</p>
+      <h2 class="section-title reveal">登場人物</h2>
+      <div class="character-grid">
+        <div class="character-card">
+          <div class="character-photo">Coming Soon</div>
+          <p class="character-role">主人公</p>
+          <h3 class="character-name">ルーファス</h3>
+          <p class="character-desc">音楽が禁じられた街で育った少年。</p>
+        </div>
+        <div class="character-card">
+          <div class="character-photo">Coming Soon</div>
+          <p class="character-role">音楽の精霊</p>
+          <h3 class="character-name">アメル</h3>
+          <p class="character-desc">無邪気で優しく、沈黙の中でも歌を忘れない。</p>
+        </div>
+        <div class="character-card">
+          <div class="character-photo">Coming Soon</div>
+          <p class="character-role">町の支配者</p>
+          <h3 class="character-name">オトワレ</h3>
+          <p class="character-desc">こだま町の秩序を握る支配者。</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="character.html" class="btn-more">登場人物をもっと見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="background:var(--section-bg1);" id="gallery">
+    <div class="section-inner">
+      <p class="section-label reveal">Gallery</p>
+      <h2 class="section-title reveal">ギャラリー</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">Coming Soon</div>
+        <div class="gallery-item">Coming Soon</div>
+        <div class="gallery-item">Coming Soon</div>
+        <div class="gallery-item">Coming Soon</div>
+        <div class="gallery-item">Coming Soon</div>
+        <div class="gallery-item">Coming Soon</div>
+      </div>
+      <div class="text-center">
+        <a href="gallery.html" class="btn-more">ギャラリーをもっと見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section style="background:var(--section-bg3);" id="music">
+    <div class="section-inner">
+      <p class="section-label reveal">Music Number</p>
+      <h2 class="section-title reveal">ミュージックナンバー</h2>
+      <div class="music-grid">
+        <a href="music.html" class="music-card">
+          <div class="music-thumb">Coming Soon</div>
+          <div class="music-act">主題歌</div>
+          <p class="music-title-sm">「覚悟の歌」</p>
+          <p class="music-desc-sm">かつてのこだま町で長年歌われてきた歌が、今ふたたび覚悟の鐘音として鳴り響く。</p>
+        </a>
+        <a href="music.html" class="music-card">
+          <div class="music-thumb">Coming Soon</div>
+          <div class="music-act">出会い</div>
+          <p class="music-title-sm">「アメルとの出会い」</p>
+          <p class="music-desc-sm">沈黙の世界に、ひとしずくの光が落ちる瞬間。</p>
+        </a>
+        <a href="music.html" class="music-card">
+          <div class="music-thumb">Coming Soon</div>
+          <div class="music-act">フィナーレ</div>
+          <p class="music-title-sm">「あなたの夢私の夢」</p>
+          <p class="music-desc-sm">それぞれの夢が重なり、支え合う終盤のナンバー。</p>
+        </a>
+      </div>
+      <div class="text-center">
+        <a href="music.html" class="btn-more">ミュージックナンバーをもっと見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAST & STAFF -->
+  <section style="background:var(--dark3);" id="cast">
+    <div class="section-inner">
+      <p class="section-label reveal">Cast</p>
+      <h2 class="section-title reveal">キャスト</h2>
+      <p class="section-label" style="margin-bottom:24px;">MAIN CAST</p>
+      <div class="cast-grid-top">
+        <div class="cast-card-top">
+          <div class="cast-photo-top">Coming Soon</div>
+          <p class="cast-role-top">主人公役</p>
+          <p class="cast-name-top">平野一成</p>
+        </div>
+        <div class="cast-card-top">
+          <div class="cast-photo-top">Coming Soon</div>
+          <p class="cast-role-top">ヒロイン役</p>
+          <p class="cast-name-top">田中杏奈</p>
+        </div>
+        <div class="cast-card-top">
+          <div class="cast-photo-top">Coming Soon</div>
+          <p class="cast-role-top">悪役</p>
+          <p class="cast-name-top">荻須隆文</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="cast.html" class="btn-more">キャスト一覧へ</a>
+      </div>
+
+      <div class="staff-divider" id="staff"></div>
+
+      <p class="section-label reveal" style="margin-bottom:8px;">Staff</p>
+      <h2 class="section-title reveal" style="margin-bottom:40px;">スタッフ</h2>
+      <div class="staff-summary">
+        <div class="staff-summary-row"><span class="staff-summary-role">製作総指揮・原案</span><span class="staff-summary-name">平野一成</span></div>
+        <div class="staff-summary-row"><span class="staff-summary-role">演出・脚本・振付</span><span class="staff-summary-name">MaRiNa</span></div>
+        <div class="staff-summary-row"><span class="staff-summary-role">作曲</span><span class="staff-summary-name">加藤千広（劇団ながらびっと）</span></div>
+        <div class="staff-summary-row"><span class="staff-summary-role">舞台監督</span><span class="staff-summary-name">蜷川湖音（ライズ）</span></div>
+        <div class="staff-summary-row"><span class="staff-summary-role">主催</span><span class="staff-summary-name">BOOMS</span></div>
+      </div>
+      <div class="text-center">
+        <a href="staff.html" class="btn-more">スタッフ一覧へ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKET -->
+  <section style="background:var(--section-bg1);" id="ticket">
+    <div class="section-inner">
+      <p class="section-label reveal">Ticket</p>
+      <h2 class="section-title reveal">チケット・公演情報</h2>
+      <div class="ticket-box">
+        <p class="ticket-title">TICKET INFORMATION</p>
+        <div class="ticket-info">
+          <p><strong>公演日</strong>　2026年7月5日（日）</p>
+          <p><strong>開演</strong>　12:00〜 ／ 17:00〜（開場は各30分前）</p>
+          <p><strong>会場</strong>　小牧市まなび創造館 あさひホール（ラピオ5F）<br><span style="font-size:12px;color:var(--text-muted);">〒485-0041 愛知県小牧市小牧３－５５５ ラピオ５Ｆ</span></p>
+          <p><strong>料金（前売）</strong>　一般 ¥3,300 ／ 学生 ¥2,700 ／ U12 ¥1,800</p>
+          <p><strong>料金（当日）</strong>　一般 ¥3,500 ／ 学生 ¥2,900 ／ U12 ¥1,800</p>
+          <p><strong>上演時間</strong>　約90分（休憩あり）</p>
+          <p><strong>後援</strong>　小牧市 ／ 小牧市教育委員会</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">小牧市夢にチャレンジ助成金採択プロジェクト</p>
+        </div>
+        <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
+        <a href="ticket-info.html" class="btn-primary" style="margin-top:16px;">ご観劇の方へ（当日の案内・アクセス）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="background:var(--dark2);" id="contact-top">
+    <div class="section-inner">
+      <p class="section-label reveal">Contact</p>
+      <h2 class="section-title reveal">お問い合わせ</h2>
+      <div class="contact-top-box reveal">
+        <p class="contact-top-text">
+          公演に関するご質問・ご不明点はお問い合わせフォームよりお気軽にどうぞ。<br>
+          通常2〜3日以内にご返信いたします。
+        </p>
+        <a href="contact.html" class="btn-primary filled">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-logo">沈黙町とアメル</p>
+          <p class="footer-org">BOOMS<br>booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/booms_musical/" target="_blank" class="sns-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="#news">ニュース</a></li>
+              <li><a href="#intro">はじめに</a></li>
+              <li><a href="story.html">ストーリー</a></li>
+              <li><a href="character.html">登場人物</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="gallery.html">ギャラリー</a></li>
+              <li><a href="music.html">ミュージックナンバー</a></li>
+              <li><a href="cast.html">キャスト</a></li>
+              <li><a href="staff.html">スタッフ</a></li>
+              <li><a href="#ticket">チケット</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 学生ミュージカル制作団体 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Hamburger
+    const hbg = document.querySelector('.hamburger');
+    const mmenu = document.querySelector('.mobile-menu');
+    if (hbg && mmenu) {
+      hbg.addEventListener('click', () => {
+        hbg.classList.toggle('open');
+        mmenu.classList.toggle('open');
+        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        hbg.classList.remove('open');
+        mmenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }));
+    }
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Active nav highlight
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('header nav a, .mobile-menu a').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const page = href.split('#')[0].split('/').pop();
+      if (page && page === currentPage) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News ニュース | 沈黙町とアメル～こだま町に響く覚悟の鐘音～</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    .news-filter { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; }
+    .filter-btn { background:transparent; border:1px solid rgba(201,168,76,0.3); color:var(--text-muted); padding:8px 20px; font-size:12px; letter-spacing:0.15em; cursor:pointer; transition:all 0.3s; font-family:'Noto Sans JP',sans-serif; }
+    .filter-btn:hover, .filter-btn.active { background:var(--gold); color:var(--dark); border-color:var(--gold); }
+    .news-list { border-top:1px solid rgba(201,168,76,0.2); }
+    .news-item { display:flex; align-items:baseline; gap:24px; padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; color:inherit; transition:color 0.3s; }
+    .news-item:hover { color:var(--gold); }
+    .news-date { font-size:12px; color:var(--gold); letter-spacing:0.1em; white-space:nowrap; min-width:90px; }
+    .news-tag { font-size:10px; border:1px solid var(--text-muted); color:var(--text-muted); padding:2px 8px; letter-spacing:0.1em; white-space:nowrap; }
+    .news-text { font-size:14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="header-logo">沈黙町とアメル</a>
+    <nav>
+      <ul>
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="story.html">STORY</a></li>
+        <li><a href="character.html">CHARACTER</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="music.html">MUSIC</a></li>
+        <li><a href="cast.html">CAST</a></li>
+        <li><a href="staff.html">STAFF</a></li>
+        <li><a href="ticket-info.html">TICKET</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-ticket">チケット購入</a>
+  </header>
+  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  <div class="mobile-menu">
+    <a href="news.html">NEWS</a>
+    <a href="story.html">STORY</a>
+    <a href="character.html">CHARACTER</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="music.html">MUSIC</a>
+    <a href="cast.html">CAST</a>
+    <a href="staff.html">STAFF</a>
+    <a href="ticket-info.html">TICKET</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="menu-ticket">チケット購入</a>
+  </div>
+  <div class="sub-hero">
+    <div class="sub-hero-inner">
+      <p class="sub-hero-label">News</p>
+      <h1 class="sub-hero-title">ニュース</h1>
+      <a href="index.html" class="sub-hero-back">トップページへ戻る</a>
+    </div>
+  </div>
+  <section style="background:var(--dark2);">
+    <div class="section-inner">
+      <div class="news-filter">
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="info">お知らせ</button>
+        <button class="filter-btn" data-filter="ticket">チケット</button>
+        <button class="filter-btn" data-filter="cast">キャスト</button>
+        <button class="filter-btn" data-filter="event">イベント</button>
+      </div>
+      <div class="news-list">
+        <a href="#" class="news-item" data-cat="info"><span class="news-date">20XX.XX.XX</span><span class="news-tag">お知らせ</span><span class="news-text">ニュースタイトルをここに記入</span></a>
+        <a href="#" class="news-item" data-cat="ticket"><span class="news-date">20XX.XX.XX</span><span class="news-tag">チケット</span><span class="news-text">チケット発売に関するお知らせ</span></a>
+        <a href="#" class="news-item" data-cat="cast"><span class="news-date">20XX.XX.XX</span><span class="news-tag">キャスト</span><span class="news-text">キャスト情報のお知らせ</span></a>
+        <a href="#" class="news-item" data-cat="event"><span class="news-date">20XX.XX.XX</span><span class="news-tag">イベント</span><span class="news-text">イベント開催のお知らせ</span></a>
+        <a href="#" class="news-item" data-cat="info"><span class="news-date">20XX.XX.XX</span><span class="news-tag">お知らせ</span><span class="news-text">公演に関するお知らせ</span></a>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.news-item').forEach(item => {
+          item.style.display = (f === 'all' || item.dataset.cat === f) ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+  <div class="home-btn-wrap">
+    <a href="index.html" class="home-btn">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-logo">沈黙町とアメル</p>
+          <p class="footer-org">BOOMS<br>booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/booms_musical/" target="_blank" class="sns-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="index.html#news">ニュース</a></li>
+              <li><a href="index.html#intro">はじめに</a></li>
+              <li><a href="story.html">ストーリー</a></li>
+              <li><a href="character.html">登場人物</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="gallery.html">ギャラリー</a></li>
+              <li><a href="music.html">ミュージックナンバー</a></li>
+              <li><a href="cast.html">キャスト</a></li>
+              <li><a href="staff.html">スタッフ</a></li>
+              <li><a href="index.html#ticket">チケット</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BOOMS All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Hamburger
+    const hbg = document.querySelector('.hamburger');
+    const mmenu = document.querySelector('.mobile-menu');
+    if (hbg && mmenu) {
+      hbg.addEventListener('click', () => {
+        hbg.classList.toggle('open');
+        mmenu.classList.toggle('open');
+        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        hbg.classList.remove('open');
+        mmenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }));
+    }
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Active nav highlight
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('header nav a, .mobile-menu a').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const page = href.split('#')[0].split('/').pop();
+      if (page && page === currentPage) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>

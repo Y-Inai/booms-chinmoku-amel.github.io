@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご観劇の方へ | 沈黙町とアメル～こだま町に響く覚悟の鐘音～</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== GUIDE PAGE ===== */
+    .guide-intro { font-family:'Noto Serif JP',serif; font-size:16px; line-height:2.4; text-align:center; color:var(--text-muted); max-width:600px; margin:0 auto 72px; }
+
+    /* TOC */
+    .guide-toc { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:80px; }
+    .toc-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; border:1px solid rgba(201,168,76,0.35); color:var(--gold); font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.25em; text-decoration:none; transition:all 0.3s; }
+    .toc-btn:hover { background:rgba(201,168,76,0.08); border-color:var(--gold); }
+    .toc-btn::before { content:''; display:block; width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.6; }
+
+    /* SECTION BLOCKS */
+    .guide-block { margin-bottom:80px; }
+    .guide-block-header { display:flex; align-items:center; gap:20px; margin-bottom:36px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .guide-num { font-family:'Cinzel',serif; font-size:48px; color:rgba(201,168,76,0.15); line-height:1; flex-shrink:0; }
+    .guide-block-title { font-family:'Noto Serif JP',serif; font-size:22px; font-weight:400; letter-spacing:0.1em; }
+    .guide-block-sub { font-family:'Cinzel',serif; font-size:10px; color:var(--gold); letter-spacing:0.3em; margin-bottom:6px; }
+
+    /* PERFORMANCE INFO TABLE */
+    .perf-table { width:100%; border-collapse:collapse; }
+    .perf-table tr { border-bottom:1px solid rgba(255,255,255,0.05); }
+    .perf-table td { padding:16px 0; vertical-align:top; font-size:14px; }
+    .perf-table td:first-child { color:var(--text-muted); font-size:13px; width:140px; padding-right:24px; white-space:nowrap; }
+    .perf-table td:last-child { color:var(--text); line-height:1.9; }
+
+    /* NOTICE CARDS */
+    .notice-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .notice-card { background:rgba(255,255,255,0.03); border:1px solid rgba(201,168,76,0.12); padding:28px 28px 24px; }
+    .notice-card-label { font-family:'Cinzel',serif; font-size:9px; letter-spacing:0.3em; color:var(--gold); margin-bottom:12px; }
+    .notice-card-text { font-size:13px; color:var(--text-muted); line-height:2; }
+    .notice-card-text strong { color:var(--text); }
+
+    /* FLOW */
+    .flow-list { display:flex; flex-direction:column; gap:0; }
+    .flow-item { display:grid; grid-template-columns:48px 1fr; gap:20px; position:relative; }
+    .flow-item:not(:last-child)::after { content:''; position:absolute; left:24px; top:48px; bottom:0; width:1px; background:rgba(201,168,76,0.15); transform:translateX(-50%); }
+    .flow-step { width:48px; height:48px; border:1px solid rgba(201,168,76,0.4); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:13px; color:var(--gold); flex-shrink:0; background:var(--dark2); position:relative; z-index:1; }
+    .flow-body { padding:10px 0 40px; }
+    .flow-title { font-size:15px; font-weight:400; margin-bottom:8px; color:var(--text); }
+    .flow-desc { font-size:13px; color:var(--text-muted); line-height:2; }
+
+    /* IMPORTANT BOX */
+    .important-box { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.3); border-left:3px solid var(--gold); padding:28px 32px; margin-top:20px; }
+    .important-box p { font-size:13px; color:var(--text-muted); line-height:2.2; }
+    .important-box strong { color:var(--text); }
+
+    /* CTA */
+    .guide-cta { text-align:center; padding:60px 40px; background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.2); }
+    .guide-cta-text { font-size:14px; color:var(--text-muted); line-height:2.2; margin-bottom:36px; }
+
+    @media (max-width:768px) {
+      .notice-grid { grid-template-columns:1fr; }
+      .perf-table td:first-child { width:100px; }
+      .guide-num { font-size:32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="header-logo">沈黙町とアメル</a>
+    <nav>
+      <ul>
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="story.html">STORY</a></li>
+        <li><a href="character.html">CHARACTER</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="music.html">MUSIC</a></li>
+        <li><a href="cast.html">CAST</a></li>
+        <li><a href="staff.html">STAFF</a></li>
+        <li><a href="ticket-info.html">TICKET</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-ticket">チケット購入</a>
+  </header>
+  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  <div class="mobile-menu">
+    <a href="news.html">NEWS</a>
+    <a href="story.html">STORY</a>
+    <a href="character.html">CHARACTER</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="music.html">MUSIC</a>
+    <a href="cast.html">CAST</a>
+    <a href="staff.html">STAFF</a>
+    <a href="ticket-info.html">TICKET</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="menu-ticket">チケット購入</a>
+  </div>
+
+  <div class="sub-hero">
+    <div class="sub-hero-inner">
+      <p class="sub-hero-label">Visitor's Guide</p>
+      <h1 class="sub-hero-title">ご観劇の方へ</h1>
+      <a href="index.html" class="sub-hero-back">トップページへ戻る</a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section style="background:var(--dark2);">
+    <div class="section-inner">
+      <p class="guide-intro reveal">
+        チケットをお求めいただきありがとうございます。<br>
+        当日をより快適にお楽しみいただくために、<br>
+        下記の案内をあらかじめご確認ください。
+      </p>
+
+      <!-- TOC -->
+      <div class="guide-toc reveal">
+        <a href="#perf-info" class="toc-btn">公演情報</a>
+        <a href="#on-the-day" class="toc-btn">当日の流れ</a>
+        <a href="#notice" class="toc-btn">ご注意事項</a>
+        <a href="#access" class="toc-btn">アクセス</a>
+      </div>
+
+      <!-- 01 公演情報 -->
+      <div class="guide-block reveal" id="perf-info">
+        <div class="guide-block-header">
+          <div class="guide-num">01</div>
+          <div>
+            <p class="guide-block-sub">Performance Info</p>
+            <h2 class="guide-block-title">公演情報</h2>
+          </div>
+        </div>
+        <table class="perf-table">
+          <tr>
+            <td>公演名</td>
+            <td>沈黙町とアメル<br><span style="font-size:12px;color:var(--text-muted);">～こだま町に響く覚悟の鐘音～</span></td>
+          </tr>
+          <tr>
+            <td>公演日</td>
+            <td>2026年7月5日（日）</td>
+          </tr>
+          <tr>
+            <td>開演時間</td>
+            <td>
+              第1回　12:00〜（開場 11:30〜）<br>
+              第2回　17:00〜（開場 16:30〜）
+            </td>
+          </tr>
+          <tr>
+            <td>上演時間</td>
+            <td>約90分（休憩あり）</td>
+          </tr>
+          <tr>
+            <td>会場</td>
+            <td>
+              小牧市まなび創造館 あさひホール（ラピオ5F）<br>
+              <span style="font-size:12px;color:var(--text-muted);">〒485-0041 愛知県小牧市小牧３－５５５</span>
+            </td>
+          </tr>
+          <tr>
+            <td>料金（前売）</td>
+            <td>一般 ¥3,000　／　学生 ¥2,400　／　U12 ¥1,800</td>
+          </tr>
+          <tr>
+            <td>料金（当日）</td>
+            <td>一般 ¥3,500　／　学生 ¥2,900　／　U12 ¥1,800</td>
+          </tr>
+          <tr>
+            <td>座席</td>
+            <td>全席自由席</td>
+          </tr>
+          <tr>
+            <td>主催・後援</td>
+            <td>BOOMS　／　後援：小牧市・小牧市教育委員会</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 02 当日の流れ -->
+      <div class="guide-block reveal" id="on-the-day">
+        <div class="guide-block-header">
+          <div class="guide-num">02</div>
+          <div>
+            <p class="guide-block-sub">On the Day</p>
+            <h2 class="guide-block-title">当日の流れ</h2>
+          </div>
+        </div>
+        <div class="flow-list">
+          <div class="flow-item">
+            <div class="flow-step">1</div>
+            <div class="flow-body">
+              <p class="flow-title">会場へお越しください</p>
+              <p class="flow-desc">ラピオ5Fのあさひホールが会場です。開場は開演の30分前となります。<br>お時間に余裕を持ってお越しください。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-step">2</div>
+            <div class="flow-body">
+              <p class="flow-title">受付にてチケットをご提示ください</p>
+              <p class="flow-desc">購入済みのチケット（紙・スマートフォン画面いずれも可）を受付スタッフへお見せください。<br>スマートフォンの場合は、あらかじめ画面を開いておくとスムーズです。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-step">3</div>
+            <div class="flow-body">
+              <p class="flow-title">お好きなお席へどうぞ</p>
+              <p class="flow-desc">本公演は<strong>全席自由席</strong>です。開場後はお好きなお席にお座りください。<br>混雑が予想される場合は、スタッフの案内に従ってお進みください。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-step">4</div>
+            <div class="flow-body">
+              <p class="flow-title">開演・ご観劇をお楽しみください</p>
+              <p class="flow-desc">上演時間は約90分（休憩あり）を予定しています。<br>開演後のご入場は会場の構造・演出の都合上、ご案内が遅れる場合があります。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 ご注意事項 -->
+      <div class="guide-block reveal" id="notice">
+        <div class="guide-block-header">
+          <div class="guide-num">03</div>
+          <div>
+            <p class="guide-block-sub">Important Notes</p>
+            <h2 class="guide-block-title">ご注意事項</h2>
+          </div>
+        </div>
+        <div class="notice-grid">
+          <div class="notice-card">
+            <p class="notice-card-label">Ticket</p>
+            <p class="notice-card-text">
+              <strong>チケットの転売・譲渡</strong>はご遠慮ください。<br>
+              お客様都合によるキャンセル・払い戻しには対応しておりません。
+            </p>
+          </div>
+          <div class="notice-card">
+            <p class="notice-card-label">Late Arrival</p>
+            <p class="notice-card-text">
+              遅刻された場合でも入場は可能ですが、<strong>すぐにご案内できない場合</strong>や、スタッフ指定の席へのご案内になる場合があります。
+            </p>
+          </div>
+          <div class="notice-card">
+            <p class="notice-card-label">In the Venue</p>
+            <p class="notice-card-text">
+              会場内は<strong>禁煙・飲食禁止</strong>です。<br>
+              上演中の撮影・録音・録画は固くお断りしております。
+            </p>
+          </div>
+          <div class="notice-card">
+            <p class="notice-card-label">Flowers & Gifts</p>
+            <p class="notice-card-text">
+              会場の都合上、<strong>スタンド花・バルーン・花輪</strong>の受け取りはお断りしております。ご了承ください。
+            </p>
+          </div>
+        </div>
+        <div class="important-box">
+          <p>上演時間は約90分を予定しておりますが、<strong>10分程度延びる場合</strong>がございます。あらかじめご了承ください。<br>
+          その他ご不明な点は <a href="contact.html" style="color:var(--gold);">お問い合わせフォーム</a> よりご連絡ください。</p>
+        </div>
+      </div>
+
+      <!-- 04 アクセス -->
+      <div class="guide-block reveal" id="access">
+        <div class="guide-block-header">
+          <div class="guide-num">04</div>
+          <div>
+            <p class="guide-block-sub">Access</p>
+            <h2 class="guide-block-title">アクセス</h2>
+          </div>
+        </div>
+        <table class="perf-table" style="margin-bottom:28px;">
+          <tr>
+            <td>会場</td>
+            <td>小牧市まなび創造館 あさひホール（ラピオ5F）<br>
+              <span style="font-size:12px;color:var(--text-muted);">〒485-0041 愛知県小牧市小牧３－５５５</span>
+            </td>
+          </tr>
+          <tr>
+            <td>電車</td>
+            <td>名鉄小牧線「小牧駅」より徒歩約1分<br>
+              <span style="font-size:12px;color:var(--text-muted);">駅直結のラピオビル5Fにございます</span>
+            </td>
+          </tr>
+          <tr>
+            <td>お車</td>
+            <td>ラピオ駐車場またはお近くの有料駐車場をご利用ください<br>
+              <span style="font-size:12px;color:var(--text-muted);">※駐車場料金は各自でご負担ください</span>
+            </td>
+          </tr>
+        </table>
+        <div style="width:100%;aspect-ratio:16/7;border:1px solid rgba(201,168,76,0.15);overflow:hidden;">
+          <iframe
+            src="https://maps.google.com/maps?q=愛知県小牧市小牧3-555+小牧市まなび創造館 あさひホール&output=embed&hl=ja"
+            width="100%" height="100%" style="border:0;filter:grayscale(0.7) invert(0.05);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p style="margin-top:12px;text-align:right;">
+          <a href="https://maps.google.com/?q=愛知県小牧市小牧3-555+小牧市まなび創造館 あさひホール" target="_blank" rel="noopener" style="font-size:12px;color:var(--gold);letter-spacing:0.1em;">Google マップで開く →</a>
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="guide-cta reveal">
+        <p class="guide-cta-text">
+          当日、皆さまのご来場を心よりお待ちしております。<br>
+          ご不明な点は、お気軽にお問い合わせください。
+        </p>
+        <a href="contact.html" class="btn-primary">お問い合わせ</a>
+        <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="home-btn-wrap">
+    <a href="index.html" class="home-btn">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-logo">沈黙町とアメル</p>
+          <p class="footer-org">BOOMS<br>booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/booms_musical/" target="_blank" class="sns-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="index.html#news">ニュース</a></li>
+              <li><a href="index.html#intro">はじめに</a></li>
+              <li><a href="story.html">ストーリー</a></li>
+              <li><a href="character.html">登場人物</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <ul>
+              <li><a href="gallery.html">ギャラリー</a></li>
+              <li><a href="music.html">ミュージックナンバー</a></li>
+              <li><a href="cast.html">キャスト</a></li>
+              <li><a href="staff.html">スタッフ</a></li>
+              <li><a href="index.html#ticket">チケット</a></li>
+              <li><a href="ticket-info.html">ご観劇の方へ</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BOOMS All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hbg = document.querySelector('.hamburger');
+    const mmenu = document.querySelector('.mobile-menu');
+    if (hbg && mmenu) {
+      hbg.addEventListener('click', () => {
+        hbg.classList.toggle('open');
+        mmenu.classList.toggle('open');
+        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        hbg.classList.remove('open');
+        mmenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }));
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

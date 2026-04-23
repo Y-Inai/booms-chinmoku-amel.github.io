@@ -10,13 +10,17 @@
 
     .hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#0A0806; }
     .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.15) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(139,26,26,0.4) 0%, transparent 50%); }
-    .hero-img { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:13px; color:rgba(255,255,255,0.2); letter-spacing:0.3em; }
+    .hero-img { position:absolute; inset:0; background-image:url('images/index_key_visual.png'); background-size:cover; background-position:center; }
     .hero-content { position:relative; text-align:center; padding:20px; animation:fadeInUp 1.2s ease both; }
+    .hero-content::before { content:''; position:absolute; inset:-80px -100px; background:radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%, transparent 72%); z-index:-1; pointer-events:none; }
+    .hero-label { font-size:11px; letter-spacing:0.4em; color:#f0c84a; margin-bottom:16px; text-transform:uppercase; text-shadow:0 1px 10px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.9); }
+    .hero .btn-primary { border-color:rgba(201,168,76,0.9); color:#f0e8d8; text-shadow:0 1px 6px rgba(0,0,0,0.9); box-shadow:0 0 12px rgba(0,0,0,0.6); background:rgba(0,0,0,0.35); }
+    .hero .btn-primary:hover { background:var(--gold); color:var(--dark); text-shadow:none; }
     @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-    .hero-label { font-size:11px; letter-spacing:0.4em; color:var(--gold); margin-bottom:16px; text-transform:uppercase; }
-    .hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(36px,6vw,72px); font-weight:300; letter-spacing:0.2em; line-height:1.3; margin-bottom:8px; }
-    .hero-subtitle { font-family:'Cinzel',serif; font-size:clamp(14px,2vw,20px); color:var(--gold); letter-spacing:0.25em; margin-bottom:32px; }
-    .hero-date { font-size:13px; color:var(--text-muted); letter-spacing:0.15em; margin-bottom:40px; }
+    .hero-label { font-size:11px; letter-spacing:0.4em; color:var(--gold); margin-bottom:16px; text-transform:uppercase; text-shadow:0 1px 8px rgba(0,0,0,0.8); }
+    .hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(36px,6vw,72px); font-weight:300; letter-spacing:0.2em; line-height:1.3; margin-bottom:8px; text-shadow:0 2px 16px rgba(0,0,0,0.9),0 0 40px rgba(0,0,0,0.6); }
+    .hero-subtitle { font-family:'Cinzel',serif; font-size:clamp(14px,2vw,20px); color:var(--gold); letter-spacing:0.25em; margin-bottom:32px; text-shadow:0 1px 8px rgba(0,0,0,0.8); }
+    .hero-date { font-size:13px; color:#e8dcc8; letter-spacing:0.15em; margin-bottom:40px; text-shadow:0 1px 8px rgba(0,0,0,0.9); }
     .hero-scroll { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-muted); font-size:10px; letter-spacing:0.3em; animation:bounce 2s infinite; }
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
     .hero-scroll::after { content:''; display:block; width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); }
@@ -105,7 +109,7 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
-    <div class="hero-img">MAIN VISUAL Coming Soon HERE</div>
+    <div class="hero-img"></div>
     <div class="hero-content">
       <p class="hero-label">Musical — 2026</p>
       <h1 class="hero-title">沈黙町とアメル</h1>
@@ -165,7 +169,8 @@
       <p class="section-label reveal">Story</p>
       <h2 class="section-title reveal">ストーリー</h2>
       <div class="story-content">
-        <div class="story-image">Coming Soon</div>
+        <div class="story-image"><img src="images/index_story_visual.png" alt="キャラクター名" 
+       style="width:100%; height:100%; object-fit:cover; display:block;"></div>
         <div>
           <div class="story-text-p">
             <p>音楽が禁じられた街「こだま町」。歌うことも、奏でることも、楽しむことすら罪とされる世界で、少年ルーファスは<br>"音楽が好き"という気持ちを胸の奥に閉じ込めて生きてきた。夢はいつしか、夢らしきものに変わっていく。</p>

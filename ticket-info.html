@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ご観劇の方へ | 沈黙町とアメル～こだま町に響く覚悟の鐘音～</title>
+  <title>ご観劇いただく皆様へ | 沈黙町とアメル～こだま町に響く覚悟の鐘音～</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* ===== GUIDE PAGE ===== */
@@ -53,6 +53,9 @@
 
     /* CTA */
     .guide-cta { text-align:center; padding:60px 40px; background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.2); }
+    .flow-ticket-list { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:10px; }
+    .flow-ticket-list li { background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.15); padding:12px 16px; font-size:13px; color:var(--text-muted); line-height:1.8; border-left:2px solid rgba(201,168,76,0.5); }
+    .flow-ticket-list li strong { color:var(--text); display:block; margin-bottom:2px; }
     .guide-cta-text { font-size:14px; color:var(--text-muted); line-height:2.2; margin-bottom:36px; }
 
     @media (max-width:768px) {
@@ -78,7 +81,7 @@
         <li><a href="contact.html">CONTACT</a></li>
       </ul>
     </nav>
-    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-ticket">チケット購入</a>
+    <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="btn-ticket">チケット購入</a>
   </header>
   <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   <div class="mobile-menu">
@@ -91,13 +94,13 @@
     <a href="staff.html">STAFF</a>
     <a href="ticket-info.html">TICKET</a>
     <a href="contact.html">CONTACT</a>
-    <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="menu-ticket">チケット購入</a>
+    <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="menu-ticket">チケット購入</a>
   </div>
 
   <div class="sub-hero">
     <div class="sub-hero-inner">
       <p class="sub-hero-label">Visitor's Guide</p>
-      <h1 class="sub-hero-title">ご観劇の方へ</h1>
+      <h1 class="sub-hero-title">ご観劇いただく皆様へ</h1>
       <a href="index.html" class="sub-hero-back">トップページへ戻る</a>
     </div>
   </div>
@@ -140,8 +143,9 @@
           <tr>
             <td>開演時間</td>
             <td>
-              第1回　12:00〜（開場 11:30〜）<br>
-              第2回　17:00〜（開場 16:30〜）
+              第1回　12:00〜<br>
+              第2回　17:00〜<br>
+              <span style="font-size:12px;color:var(--text-muted);">ロビー開場：各60分前　／　客席開場：各30分前</span>
             </td>
           </tr>
           <tr>
@@ -157,11 +161,11 @@
           </tr>
           <tr>
             <td>料金（前売）</td>
-            <td>一般 ¥3,000　／　学生 ¥2,400　／　U12 ¥1,800</td>
+            <td>一般 3,300円　／　学生 2,700円　／　U12 1,800円</td>
           </tr>
           <tr>
             <td>料金（当日）</td>
-            <td>一般 ¥3,500　／　学生 ¥2,900　／　U12 ¥1,800</td>
+            <td>一般 3,500円　／　学生 2,900円　／　U12 1,800円</td>
           </tr>
           <tr>
             <td>座席</td>
@@ -169,7 +173,7 @@
           </tr>
           <tr>
             <td>主催・後援</td>
-            <td>BOOMS　／　後援：小牧市・小牧市教育委員会</td>
+            <td>主催：学生団体BOOMS　／　後援：小牧市・小牧市教育委員会</td>
           </tr>
         </table>
       </div>
@@ -188,14 +192,18 @@
             <div class="flow-step">1</div>
             <div class="flow-body">
               <p class="flow-title">会場へお越しください</p>
-              <p class="flow-desc">ラピオ5Fのあさひホールが会場です。開場は開演の30分前となります。<br>お時間に余裕を持ってお越しください。</p>
+              <p class="flow-desc">ラピオ5Fのあさひホールが会場です。ロビーは開演60分前、客席は30分前に開場いたします。<br>お時間に余裕を持ってお越しください。</p>
             </div>
           </div>
           <div class="flow-item">
             <div class="flow-step">2</div>
             <div class="flow-body">
-              <p class="flow-title">受付にてチケットをご提示ください</p>
-              <p class="flow-desc">購入済みのチケット（紙・スマートフォン画面いずれも可）を受付スタッフへお見せください。<br>スマートフォンの場合は、あらかじめ画面を開いておくとスムーズです。</p>
+              <p class="flow-title">受付にてご本人確認をお願いします</p>
+              <p class="flow-desc">ご購入方法に応じて、以下をご提示ください。</p>
+              <ul class="flow-ticket-list">
+                <li><strong>クラウドファンディング（クラファン）でご購入の方</strong><br>チケット代わりとしてお送りしたメール本文をご提示ください。</li>
+                <li><strong>こりっちでご購入の方</strong><br>QRコードをご提示ください。</li>
+              </ul>
             </div>
           </div>
           <div class="flow-item">
@@ -306,7 +314,7 @@
           ご不明な点は、お気軽にお問い合わせください。
         </p>
         <a href="contact.html" class="btn-primary">お問い合わせ</a>
-        <a href="https://for-good.net/project/1003306" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
+        <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
       </div>
 
     </div>
@@ -324,7 +332,7 @@
       <div class="footer-top">
         <div>
           <p class="footer-logo">沈黙町とアメル</p>
-          <p class="footer-org">BOOMS<br>booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会</p>
+          <p class="footer-org">主催：学生団体BOOMS<br>email: booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会</p>
           <div class="footer-sns">
             <a href="https://www.instagram.com/booms_musical/" target="_blank" class="sns-btn">
               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
@@ -354,7 +362,7 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 BOOMS All Rights Reserved.</p>
+        <p>© 2026 学生団体BOOMS All Rights Reserved.</p>
       </div>
     </div>
   </footer>

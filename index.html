@@ -35,7 +35,7 @@
     .intro-text { font-family:'Noto Serif JP',serif; font-size:15px; line-height:2.2; text-align:center; color:var(--text); max-width:700px; margin:0 auto 24px; font-weight:300; }
     .story-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
     .story-image { aspect-ratio:3/4; background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:12px; letter-spacing:0.2em; overflow:hidden; }
-    .story-text-p { font-size:15px; line-height:2.2; color:var(--text-muted); }
+    .story-text-p { font-size:15px; line-height:2.2; color:#ffffff; }
     .story-text-p p { margin-bottom:20px; }
     .character-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
     .character-card { text-align:center; }
@@ -68,6 +68,13 @@
     .ticket-info strong { color:var(--text); }
     .contact-top-box { text-align:center; border:1px solid rgba(201,168,76,0.25); background:rgba(201,168,76,0.04); padding:52px 40px; }
     .contact-top-text { font-size:14px; color:var(--text-muted); line-height:2.2; margin-bottom:36px; }
+    .section-bg-img { position:relative; background-size:cover; background-position:center; background-attachment:fixed; }
+    .section-bg-img::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.6); z-index:0; }
+    .section-bg-img > .section-inner { position:relative; z-index:1; }
+    /* ストーリー：オーバーレイを強め＋上部に区切りライン */
+    .story-bg-img::before { background:rgba(0,0,0,0.60); }
+    .story-bg-img { border-top:2px solid rgba(201,168,76,0.5); }
+    @media (max-width:768px) { .section-bg-img { background-attachment:scroll; } }
     @media (max-width:768px) {
       .story-content,.character-grid,.music-grid,.cast-grid-top { grid-template-columns:1fr; }
       .gallery-grid { grid-template-columns:repeat(2,1fr); }
@@ -152,7 +159,7 @@
   </section>
 
   <!-- INTRO -->
-  <section class="intro-section" id="intro">
+  <section class="intro-section section-bg-img" id="intro" style="background-image:url('images/はじめに.png');">
     <div class="section-inner">
       <p class="section-label reveal">Introduction</p>
       <h2 class="section-title reveal">はじめに</h2>
@@ -164,7 +171,7 @@
   </section>
 
   <!-- STORY -->
-  <section style="background:var(--section-bg2);" id="story">
+  <section class="section-bg-img story-bg-img" id="story" style="background-image:url('images/はじめに.png');">
     <div class="section-inner">
       <p class="section-label reveal">Story</p>
       <h2 class="section-title reveal">ストーリー</h2>

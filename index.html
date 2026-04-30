@@ -72,8 +72,8 @@
     .section-bg-img::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.6); z-index:0; }
     .section-bg-img > .section-inner { position:relative; z-index:1; }
     /* ストーリー：オーバーレイを強め＋上部に区切りライン */
-    .story-bg-img::before { background:rgba(0,0,0,0.75); }
-    .story-bg-img { }
+    .story-bg-img::before { background:rgba(0,0,0,0.60); }
+    .story-bg-img { border-top:2px solid rgba(201,168,76,0.5); }
     @media (max-width:768px) { .section-bg-img { background-attachment:scroll; } }
     @media (max-width:768px) {
       .story-content,.character-grid,.music-grid,.cast-grid-top { grid-template-columns:1fr; }
@@ -194,8 +194,28 @@
     <div class="section-inner">
       <p class="section-label reveal">Character</p>
       <h2 class="section-title reveal">登場人物</h2>
-      <div style="text-align:center;">
-        <img src="images/index_correlation_diagram.png" alt="こだま町 相関図" style="width:100%; max-width:900px; height:auto; border-radius:8px;" loading="lazy">
+      <div class="character-grid">
+        <div class="character-card">
+          <div class="character-photo">
+            <img src="images/rufas.png" alt="ルーファス" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <p class="character-role">主人公</p>
+          <h3 class="character-name">ルーファス</h3>
+          <p class="character-desc">音楽が禁じられた街で育った少年。</p>
+        </div>
+        <div class="character-card">
+          <div class="character-photo">
+            <img src="images/amel.png" alt="アメル" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <p class="character-role">音楽の精霊</p>
+          <h3 class="character-name">アメル</h3>
+          <p class="character-desc">無邪気で優しく、沈黙の中でも歌を忘れない。</p>
+        </div>
+        <div class="character-card">
+          <div class="character-photo">
+            <img src="images/otoware.png" alt="オトワレ" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <p class="character-role">町の支配者</p>
+          <h3 class="character-name">オトワレ</h3>
+          <p class="character-desc">こだま町の秩序を握る支配者。</p>
+        </div>
       </div>
       <div class="text-center">
         <a href="character.html" class="btn-more">登場人物をもっと見る</a>
@@ -288,6 +308,7 @@
         <div class="staff-summary-row"><span class="staff-summary-role">製作総指揮・原案</span><span class="staff-summary-name">平野一成</span></div>
         <div class="staff-summary-row"><span class="staff-summary-role">演出・脚本・振付</span><span class="staff-summary-name">MaRiNa</span></div>
         <div class="staff-summary-row"><span class="staff-summary-role">舞台監督</span><span class="staff-summary-name">蜷川湖音（ライズ）</span></div>
+        <div class="staff-summary-row"><span class="staff-summary-role">舞台美術</span><span class="staff-summary-name">池戸宣人 (異色unit俺たちの戦いはこれからだ！)</span></div>
         <div class="staff-summary-row"><span class="staff-summary-role">照明</span><span class="staff-summary-name">花植厚美</span></div>
         <div class="staff-summary-row"><span class="staff-summary-role">主催</span><span class="staff-summary-name">学生団体BOOMS</span></div>
       </div>

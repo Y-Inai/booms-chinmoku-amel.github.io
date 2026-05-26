@@ -50,7 +50,7 @@
     .music-thumb { aspect-ratio:16/9; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1); margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; }
     .music-title-sm { font-family:'Noto Serif JP',serif; font-size:15px; color:var(--gold); margin-bottom:8px; }
     .music-desc-sm { font-size:13px; color:var(--text-muted); line-height:1.8; }
-    .cast-grid-top { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .cast-grid-top { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
     .cast-card-top { text-align:center; }
     .cast-photo-top { aspect-ratio:3/4; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.12); margin-bottom:14px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; overflow:hidden; }
     .cast-role-top { font-size:10px; color:var(--gold); letter-spacing:0.2em; margin-bottom:4px; }
@@ -75,7 +75,8 @@
     .story-bg-img { border-top:2px solid rgba(201,168,76,0.5); }
     @media (max-width:768px) { .section-bg-img { background-attachment:scroll; } }
     @media (max-width:768px) {
-      .story-content,.character-grid,.music-grid,.cast-grid-top { grid-template-columns:1fr; }
+      .story-content,.character-grid,.music-grid { grid-template-columns:1fr; }
+      .cast-grid-top { grid-template-columns:repeat(2,1fr); }
       .gallery-grid { grid-template-columns:repeat(2,1fr); }
       .ticket-box,.contact-top-box { padding:36px 20px; }
     }
@@ -260,14 +261,25 @@
       <p class="section-label" style="margin-bottom:24px;">MAIN CAST</p>
       <div class="cast-grid-top">
         <div class="cast-card-top">
-          <div class="cast-photo-top">Coming Soon</div>
+          <div class="cast-photo-top"> 
+            <img src="images/cast_hirano.JPG" alt="平野一成" style="width:100%; height:100%; object-fit:cover;">
+          </div>
           <p class="cast-role-top">ルーファス役</p>
           <p class="cast-name-top">平野一成</p>
         </div>
         <div class="cast-card-top">
-          <div class="cast-photo-top">Coming Soon</div>
+          <div class="cast-photo-top">
+             <img src="images/cast_tanaka.JPG" alt="田中杏奈" style="width:100%; height:100%; object-fit:cover;">
+          </div>
           <p class="cast-role-top">アメル役</p>
           <p class="cast-name-top">田中杏奈</p>
+        </div>
+        <div class="cast-card-top">
+          <div class="cast-photo-top">
+            <img src="images/cast_murakami.JPG" alt="村上知里" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <p class="cast-role-top">イバン役</p>
+          <p class="cast-name-top">村上知里</p>
         </div>
         <div class="cast-card-top">
           <div class="cast-photo-top">Coming Soon</div>
@@ -370,7 +382,7 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <p>© 学生団体BOOMS All Rights Reserved.</p>
+        <p>© 2026 学生ミュージカル制作団体 All Rights Reserved.</p>
       </div>
     </div>
   </footer>

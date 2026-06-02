@@ -101,7 +101,7 @@
       <div id="lightbox" class="lightbox">
         <button class="lb-close" id="lbClose">&#x2715;</button>
         <button class="lb-prev" id="lbPrev">&#x2039;</button>
-        <div class="lb-img" id="lbImg">Coming Soon</div>
+        <div class="lb-img" id="lbImg"><img id="lbImgEl" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;"></div>
         <button class="lb-next" id="lbNext">&#x203A;</button>
       </div>
     </div>
@@ -119,12 +119,17 @@
     });
     let curIdx = 0;
     const allItems = Array.from(document.querySelectorAll('.g-item'));
+    function showLb(idx) {
+      const img = allItems[idx].querySelector('img');
+      if (img) {
+        document.getElementById('lbImgEl').src = img.src;
+        document.getElementById('lbImgEl').alt = img.alt;
+      }
+      document.getElementById('lightbox').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
     allItems.forEach((item, i) => {
-      item.addEventListener('click', () => {
-        curIdx = i;
-        document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      });
+      item.addEventListener('click', () => { curIdx = i; showLb(curIdx); });
     });
     function closeLb() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow = ''; }
     function moveLb(dir) {
@@ -132,6 +137,7 @@
       const pos = visible.indexOf(allItems[curIdx]);
       const next = (pos + dir + visible.length) % visible.length;
       curIdx = allItems.indexOf(visible[next]);
+      showLb(curIdx);
     }
     document.getElementById('lbClose').addEventListener('click', closeLb);
     document.getElementById('lbPrev').addEventListener('click', () => moveLb(-1));

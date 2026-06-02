@@ -28,6 +28,10 @@
       .char-item.rev .char-photo,.char-item.rev .char-info { order:unset; }
       .char-grid { grid-template-columns:repeat(2,1fr); }
     }
+    .diagram-wrap { cursor:zoom-in; }
+    .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
+    .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; z-index:201; }
+    .lb-img img { max-width:90vw; max-height:90vh; object-fit:contain; }
   </style>
 </head>
 <body>
@@ -73,8 +77,18 @@
       <p class="section-label reveal">Main Characters</p>
       <h2 class="section-title reveal">メインキャラクター</h2>
             <div style="text-align:center;">
-        <img src="images/index_correlation_diagram.png" alt="こだま町 相関図" style="width:100%; max-width:960px; height:auto; border-radius:8px;" loading="lazy">
+        <div class="diagram-wrap" id="diagramWrap">
+          <img src="images/index_correlation_diagram.png" alt="こだま町 相関図" style="width:100%; max-width:960px; height:auto; border-radius:8px;" loading="lazy">
+        </div>
+        <p style="font-size:11px; color:var(--text-muted); margin-top:8px; letter-spacing:0.1em;">クリックで拡大</p>
       </div>
+
+  <div id="charLightbox" class="lightbox">
+    <button class="lb-close" id="charLbClose">&#x2715;</button>
+    <div class="lb-img">
+      <img src="images/index_correlation_diagram.png" alt="こだま町 相関図">
+    </div>
+  </div>
     </div>
   </section>
 
@@ -154,6 +168,15 @@
       const page = href.split('#')[0].split('/').pop();
       if (page && page === currentPage) a.classList.add('active');
     });
+    // Lightbox
+    const lb = document.getElementById('charLightbox');
+    document.getElementById('diagramWrap').addEventListener('click', () => {
+      lb.style.display = 'flex'; document.body.style.overflow = 'hidden';
+    });
+    function closeLb() { lb.style.display = 'none'; document.body.style.overflow = ''; }
+    document.getElementById('charLbClose').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   </script>
 </body>
 </html>

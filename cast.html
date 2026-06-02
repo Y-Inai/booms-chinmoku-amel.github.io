@@ -19,6 +19,15 @@
     .cast-ens-role { font-size:9px; color:var(--gold); letter-spacing:0.15em; margin-bottom:3px; }
     .cast-ens-name { font-size:12px; }
     @media (max-width:768px) { .cast-main-grid { grid-template-columns:1fr; } .cast-ens-grid { grid-template-columns:repeat(3,1fr); } }
+    .cast-main-photo { cursor:pointer; }
+    .cast-ens-photo { cursor:pointer; }
+    .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
+    .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; }
+    .lb-prev,.lb-next { background:none; border:1px solid rgba(201,168,76,0.3); color:#C9A84C; font-size:36px; padding:8px 20px; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); transition:all 0.3s; }
+    .lb-prev { left:32px; } .lb-next { right:32px; }
+    .lb-prev:hover,.lb-next:hover { background:rgba(201,168,76,0.1); }
+    .lb-img { max-width:60vw; max-height:80vh; display:flex; align-items:center; justify-content:center; }
+    @media (max-width:768px) { .lb-prev{left:8px;} .lb-next{right:8px;} .lb-img{max-width:90vw;} }
   </style>
 </head>
 <body>
@@ -136,6 +145,13 @@
     </div>
   </section>
 
+  <div id="castLightbox" class="lightbox">
+    <button class="lb-close" id="castLbClose">&#x2715;</button>
+    <button class="lb-prev" id="castLbPrev">&#x2039;</button>
+    <div class="lb-img"><img id="castLbImg" src="" alt="" style="max-width:100%;max-height:80vh;object-fit:contain;"></div>
+    <button class="lb-next" id="castLbNext">&#x203A;</button>
+  </div>
+
   <div class="home-btn-wrap">
     <a href="index.html" class="home-btn">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -209,6 +225,31 @@
       const href = a.getAttribute('href') || '';
       const page = href.split('#')[0].split('/').pop();
       if (page && page === currentPage) a.classList.add('active');
+    });
+    // Lightbox
+    const castPhotos = Array.from(document.querySelectorAll('.cast-main-photo img, .cast-ens-photo img'));
+    let castIdx = 0;
+    function showCastLb(idx) {
+      document.getElementById('castLbImg').src = castPhotos[idx].src;
+      document.getElementById('castLbImg').alt = castPhotos[idx].alt;
+      document.getElementById('castLightbox').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    castPhotos.forEach((img, i) => {
+      img.parentElement.addEventListener('click', () => { castIdx = i; showCastLb(castIdx); });
+    });
+    function closeCastLb() { document.getElementById('castLightbox').style.display = 'none'; document.body.style.overflow = ''; }
+    function moveCastLb(dir) { castIdx = (castIdx + dir + castPhotos.length) % castPhotos.length; showCastLb(castIdx); }
+    document.getElementById('castLbClose').addEventListener('click', closeCastLb);
+    document.getElementById('castLbPrev').addEventListener('click', () => moveCastLb(-1));
+    document.getElementById('castLbNext').addEventListener('click', () => moveCastLb(1));
+    document.getElementById('castLightbox').addEventListener('click', e => { if (e.target === document.getElementById('castLightbox')) closeCastLb(); });
+    document.addEventListener('keydown', e => {
+      if (document.getElementById('castLightbox').style.display === 'flex') {
+        if (e.key === 'Escape') closeCastLb();
+        if (e.key === 'ArrowLeft') moveCastLb(-1);
+        if (e.key === 'ArrowRight') moveCastLb(1);
+      }
     });
   </script>
 </body>

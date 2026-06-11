@@ -168,6 +168,52 @@ footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); paddin
 }
 
 /* ===== モバイル固定CTAバー ===== */
+
+.mobile-cta{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    body{
+        padding-bottom:60px;
+    }
+
+    .mobile-cta{
+        display:flex;
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:900;
+        height:60px;
+        background:rgba(10,8,6,0.96);
+        border-top:1px solid rgba(201,168,76,0.35);
+        backdrop-filter:blur(6px);
+    }
+
+    .mobile-cta a{
+        flex:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:13px;
+        letter-spacing:0.15em;
+        text-decoration:none;
+    }
+
+    .mobile-cta .cta-buy{
+        background:var(--gold);
+        color:var(--dark);
+        font-weight:600;
+    }
+
+    .mobile-cta .cta-invite{
+        color:var(--gold);
+    }
+
+}
+
 @media (max-width: 768px) {
 
   header{

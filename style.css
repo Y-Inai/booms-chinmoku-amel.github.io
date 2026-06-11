@@ -133,3 +133,58 @@ footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); paddin
   section { padding: 60px 0; }
   .section-inner { padding: 0 20px; }
 }
+
+
+/* ===== 共通：ニュース一覧 ===== */
+.news-list { border-top: 1px solid rgba(201,168,76,0.2); }
+.news-item { display: flex; align-items: baseline; gap: 24px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-decoration: none; color: inherit; transition: color 0.3s; }
+.news-item:hover { color: var(--gold); }
+.news-date { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; white-space: nowrap; min-width: 90px; }
+.news-tag { font-size: 10px; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 2px 8px; letter-spacing: 0.1em; white-space: nowrap; }
+.news-text { font-size: 14px; }
+
+/* ===== 共通：ニュース詳細 ===== */
+.news-detail-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+.news-detail-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.news-detail-date { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
+.news-detail-tag { font-size: 10px; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 2px 10px; letter-spacing: 0.1em; }
+.news-detail-title { font-family: 'Noto Serif JP', serif; font-size: clamp(20px,3vw,28px); font-weight: 400; line-height: 1.6; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.news-detail-body { font-size: 15px; color: var(--text-muted); line-height: 2.2; }
+.news-detail-body p { margin-bottom: 28px; }
+.ticket-info-box { border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); padding: 32px; margin: 36px 0; }
+.ticket-info-box h3 { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 20px; }
+.ticket-info-box dl { display: grid; grid-template-columns: 120px 1fr; gap: 12px 24px; font-size: 14px; }
+.ticket-info-box dt { color: var(--text-muted); }
+.ticket-info-box dd { color: var(--text); }
+.ticket-cta { text-align: center; margin: 48px 0 32px; }
+.ticket-cta p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.news-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 56px; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.3s; }
+.news-back:hover { color: var(--gold); }
+.news-back::before { content: '\2190'; margin-right: 4px; }
+@media (max-width: 768px) {
+  .news-detail-wrap { padding: 0 20px; }
+  .ticket-info-box dl { grid-template-columns: 1fr; gap: 4px 0; }
+  .ticket-info-box dd { margin-bottom: 12px; }
+}
+
+/* ===== モバイル固定CTAバー ===== */
+.mobile-cta { display: none; }
+@media (max-width: 768px) {
+  body { padding-bottom: 60px; }
+  .mobile-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; height: 60px; background: rgba(10,8,6,0.96); border-top: 1px solid rgba(201,168,76,0.35); backdrop-filter: blur(6px); }
+  .mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; letter-spacing: 0.15em; text-decoration: none; }
+  .mobile-cta .cta-buy { background: var(--gold); color: var(--dark); font-weight: 600; }
+  .mobile-cta .cta-invite { color: var(--gold); }
+}
+
+/* ===== FAQ（よくあるご質問） ===== */
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-item { border: 1px solid rgba(201,168,76,0.2); background: rgba(255,255,255,0.02); }
+.faq-item summary { display: flex; align-items: baseline; gap: 14px; padding: 18px 20px; font-size: 14px; cursor: pointer; list-style: none; transition: color 0.3s; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::before { content: 'Q'; font-family: 'Cinzel', serif; color: var(--gold); font-size: 16px; flex-shrink: 0; }
+.faq-item summary::after { content: '+'; margin-left: auto; color: var(--gold); font-size: 18px; transition: transform 0.3s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--gold); }
+.faq-answer { display: flex; align-items: baseline; gap: 14px; padding: 0 20px 18px; font-size: 13px; color: var(--text-muted); line-height: 2; }
+.faq-answer::before { content: 'A'; font-family: 'Cinzel', serif; color: var(--text-muted); font-size: 15px; flex-shrink: 0; }

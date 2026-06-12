@@ -212,6 +212,11 @@ footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); paddin
         color:var(--gold);
     }
 
+    /* メニュー展開中はCTAバーを隠す */
+    body.menu-open .mobile-cta{
+        display:none;
+    }
+
 }
 
 @media (max-width: 768px) {

@@ -61,6 +61,11 @@
 
     /* CTA */
     .guide-cta { text-align:center; padding:60px 40px; background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.2); }
+    @media (max-width:768px) {
+      .guide-cta { padding:40px 24px; }
+      .guide-cta .btn-primary { display:block; margin:0 0 16px; }
+      .guide-cta .btn-primary:last-child { margin-bottom:0; }
+    }
     .flow-ticket-list { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:10px; }
     .flow-ticket-list li { background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.15); padding:12px 16px; font-size:13px; color:var(--text-muted); line-height:1.8; border-left:2px solid rgba(201,168,76,0.5); }
     .flow-ticket-list li strong { color:var(--text); display:block; margin-bottom:2px; }
@@ -385,7 +390,7 @@
           <span style="font-size:13px;color:var(--gold);">※12:00公演は満席となりました。17:00公演は受付中です。</span>
         </p>
         <a href="contact.html" class="btn-primary">お問い合わせ</a>
-        <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
+        <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="btn-primary filled" style="margin-top:16px;">チケット購入はこちら</a>
       </div>
 
     </div>
@@ -445,12 +450,15 @@
       hbg.addEventListener('click', () => {
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
-        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+        const isOpen = mmenu.classList.contains('open');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }));
     }
     const observer = new IntersectionObserver(entries => {

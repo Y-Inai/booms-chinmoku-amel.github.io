@@ -103,24 +103,13 @@
     /* ストーリー：オーバーレイを強め＋上部に区切りライン */
     .story-bg-img::before { background:rgba(0,0,0,0.60); }
     .story-bg-img { border-top:2px solid rgba(201,168,76,0.5); }
-    @media (max-width:768px) { .section-bg-img { background-attachment:scroll; } }
+    @media (max-width:768px) { .section-bg-img { background-attachment:scroll; background-size:200%; background-position:center 30%; } }
     @media (max-width:768px) {
       .story-content,.character-grid,.music-grid { grid-template-columns:1fr; }
       .cast-grid-top { grid-template-columns:repeat(2,1fr); }
       .gallery-grid { grid-template-columns:repeat(2,1fr); }
       .ticket-box,.contact-top-box { padding:36px 20px; }
     }
-    /* Countdown */
-    .countdown-section { background:linear-gradient(180deg, #0A0806 0%, var(--dark2) 100%); padding:56px 20px; text-align:center; border-top:1px solid rgba(201,168,76,0.25); border-bottom:1px solid rgba(201,168,76,0.25); }
-    .countdown-inner { max-width:640px; margin:0 auto; }
-    .countdown-heading { font-family:'Cinzel',serif; font-size:13px; letter-spacing:0.4em; color:var(--gold); text-transform:uppercase; margin-bottom:24px; }
-    .countdown-note { font-size:12px; letter-spacing:0.15em; color:var(--text-muted); margin-top:24px; }
-    .hero-countdown { display:flex; justify-content:center; gap:14px; }
-    .hero-countdown .cd-unit { display:flex; flex-direction:column; align-items:center; min-width:84px; padding:18px 10px; border:1px solid rgba(201,168,76,0.45); border-radius:6px; background:rgba(201,168,76,0.06); }
-    .hero-countdown .cd-num { font-family:'Cinzel',serif; font-size:clamp(30px,6vw,44px); font-weight:600; color:var(--gold); line-height:1; }
-    .hero-countdown .cd-label { font-size:10px; letter-spacing:0.25em; color:#e8dcc8; margin-top:12px; text-transform:uppercase; }
-    .hero-countdown.is-over { color:var(--gold); font-family:'Noto Serif JP',serif; font-size:clamp(20px,4vw,28px); letter-spacing:0.2em; padding:12px 0; }
-    @media (max-width:480px) { .countdown-section { padding:40px 16px; } .hero-countdown { gap:8px; } .hero-countdown .cd-unit { min-width:0; flex:1; padding:14px 4px; } .hero-countdown .cd-label { letter-spacing:0.1em; } }
   </style>
 </head>
 <body>
@@ -150,6 +139,7 @@
     <a href="#music">MUSIC</a>
     <a href="#cast">CAST</a>
     <a href="#staff">STAFF</a>
+    <a href="#ticket">TICKET</a>
     <a href="#contact-top">CONTACT</a>
     <a href="#ticket" rel="noopener" class="menu-ticket">チケット購入</a>
   </div>
@@ -169,15 +159,6 @@
       </div>
     </div>
     <div class="hero-scroll">SCROLL</div>
-  </section>
-
-  <!-- COUNTDOWN -->
-  <section class="countdown-section" aria-label="開演までのカウントダウン">
-    <div class="countdown-inner">
-      <p class="countdown-heading" id="cdHeading">開演まで</p>
-      <div class="hero-countdown" id="heroCountdown"></div>
-      <p class="countdown-note" id="cdNote">2026年7月5日（日）12:00〜 ／ 17:00〜</p>
-    </div>
   </section>
 
   <!-- NEWS -->
@@ -205,7 +186,7 @@
           <span class="news-date">2026.06.02</span>
           <span class="news-tag">稽古情報</span>
           <span class="news-text">稽古レポート（5月30・31日）</span>
-        </a>       
+        </a>
       </div>
       <div class="text-center">
         <a href="news.html" class="btn-more">ニュース一覧へ</a>
@@ -303,8 +284,7 @@
           <p class="music-desc-sm">かつてのこだま町で長年歌われてきた歌が、今ふたたび覚悟の鐘音として鳴り響く。</p>
         </a>
         <a href="music.html" class="music-card">
-          <div class="music-thumb"><img loading="lazy" decoding="async" src="images/music_meetamel.JPG" alt="アメルとの出会い" style="width:100%; height:100%; object-fit:cover;"></div>
-          <p style="text-align:right; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; margin-top:6px;">作曲　加藤千広 ／ 作詞　MaRiNa</p>
+          <div class="music-thumb">Coming Soon</div>
           <div class="music-act">出会い</div>
           <p class="music-title-sm">「アメルとの出会い」</p>
           <p class="music-desc-sm">沈黙の世界に、ひとしずくの光が落ちる瞬間。</p>
@@ -473,14 +453,14 @@
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
         const isOpen = mmenu.classList.contains('open');
-        document.body.classList.toggle('menu-open', isOpen);
         document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
-        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }));
     }
     // Scroll reveal
@@ -497,58 +477,6 @@
       const page = href.split('#')[0].split('/').pop();
       if (page && page === currentPage) a.classList.add('active');
     });
-    // Countdown to performance (2公演: 昼12:00-13:30 / 夜17:00-18:30 JST, 各90分)
-    (function () {
-      const el = document.getElementById('heroCountdown');
-      if (!el) return;
-      const heading = document.getElementById('cdHeading');
-      const note = document.getElementById('cdNote');
-      const DUR = 90 * 60 * 1000; // 公演時間90分
-      // 公演スケジュール（早い順）
-      const shows = [
-        { label: '昼の部', start: new Date('2026-07-05T12:00:00+09:00').getTime() },
-        { label: '夜の部', start: new Date('2026-07-05T17:00:00+09:00').getTime() }
-      ].map(s => ({ ...s, end: s.start + DUR }));
-
-      function render() {
-        const now = Date.now();
-        // 公演中かどうか
-        const live = shows.find(s => now >= s.start && now < s.end);
-        if (live) {
-          el.classList.add('is-over');
-          el.textContent = live.label + ' 公演中';
-          if (heading) heading.textContent = 'ただいま';
-          if (note) note.textContent = '2026年7月5日（日）12:00〜 ／ 17:00〜';
-          return;
-        }
-        // 次の開演前の公演
-        const next = shows.find(s => s.start > now);
-        if (!next) {
-          // 全公演終了
-          el.classList.add('is-over');
-          el.textContent = 'ご来場ありがとうございました';
-          if (heading) heading.textContent = '公演は終了しました';
-          if (note) note.textContent = '2026年7月5日（日）上演';
-          clearInterval(timer);
-          return;
-        }
-        el.classList.remove('is-over');
-        if (heading) heading.textContent = next.label + 'まで';
-        if (note) note.textContent = '2026年7月5日（日）12:00〜 ／ 17:00〜';
-        const diff = next.start - now;
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor(diff % 86400000 / 3600000);
-        const m = Math.floor(diff % 3600000 / 60000);
-        const s = Math.floor(diff % 60000 / 1000);
-        el.innerHTML =
-          '<div class="cd-unit"><span class="cd-num">' + d + '</span><span class="cd-label">Days</span></div>' +
-          '<div class="cd-unit"><span class="cd-num">' + String(h).padStart(2,'0') + '</span><span class="cd-label">Hours</span></div>' +
-          '<div class="cd-unit"><span class="cd-num">' + String(m).padStart(2,'0') + '</span><span class="cd-label">Min</span></div>' +
-          '<div class="cd-unit"><span class="cd-num">' + String(s).padStart(2,'0') + '</span><span class="cd-label">Sec</span></div>';
-      }
-      render();
-      const timer = setInterval(render, 1000);
-    })();
   </script>
 
   <!-- モバイル固定CTA -->

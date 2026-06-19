@@ -1,488 +1,307 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="学生団体BOOMSによるミュージカル『沈黙町とアメル～こだま町に響く覚悟の鐘音～』公式サイト。2026年7月5日（日）小牧市まなび創造館あさひホールにて上演。チケット情報・キャスト・ストーリーをご紹介します。">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="沈黙町とアメル | 学生団体BOOMS">
-  <meta property="og:title" content="沈黙町とアメル | ミュージカル公式サイト">
-  <meta property="og:description" content="学生団体BOOMSによるミュージカル『沈黙町とアメル～こだま町に響く覚悟の鐘音～』公式サイト。2026年7月5日（日）小牧市まなび創造館あさひホールにて上演。チケット情報・キャスト・ストーリーをご紹介します。">
-  <meta property="og:url" content="https://YOUR-DOMAIN.com/">
-  <meta property="og:image" content="https://YOUR-DOMAIN.com/images/index_key_visual.png">
-  <meta property="og:locale" content="ja_JP">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>沈黙町とアメル | ミュージカル『沈黙町とアメル～こだま町に響く覚悟の鐘音～』</title>
-  <link rel="preload" as="image" href="images/index_key_visual.png">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TheaterEvent",
-    "name": "沈黙町とアメル～こだま町に響く覚悟の鐘音～",
-    "startDate": "2026-07-05T12:00:00+09:00",
-    "endDate": "2026-07-05T18:30:00+09:00",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "PerformingArtsTheater",
-      "name": "小牧市まなび創造館 あさひホール（ラピオ5F）",
-      "address": { "@type": "PostalAddress", "postalCode": "485-0041", "addressRegion": "愛知県", "addressLocality": "小牧市", "streetAddress": "小牧3-555 ラピオ5F", "addressCountry": "JP" }
-    },
-    "image": "https://YOUR-DOMAIN.com/images/index_key_visual.png",
-    "description": "学生団体BOOMSによるミュージカル『沈黙町とアメル～こだま町に響く覚悟の鐘音～』。2026年7月5日（日）12:00／17:00の2回公演。",
-    "organizer": { "@type": "Organization", "name": "学生団体BOOMS", "url": "https://YOUR-DOMAIN.com/" },
-    "offers": [
-      { "@type": "Offer", "name": "一般（前売）", "price": "3300", "priceCurrency": "JPY", "url": "https://booms.corich.co/amel/tiket", "availability": "https://schema.org/InStock" },
-      { "@type": "Offer", "name": "学生（前売）", "price": "2700", "priceCurrency": "JPY", "url": "https://booms.corich.co/amel/tiket", "availability": "https://schema.org/InStock" },
-      { "@type": "Offer", "name": "U12", "price": "1800", "priceCurrency": "JPY", "url": "https://booms.corich.co/amel/tiket", "availability": "https://schema.org/InStock" }
-    ],
-    "performer": { "@type": "TheaterGroup", "name": "学生団体BOOMS" }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Cinzel:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96B;
+  --dark: #0A0A0A;
+  --dark2: #141414;
+  --dark3: #1E1A14;
+  --text: #F0E8D8;
+  --text-muted: #A89878;
+  --section-bg1: #1A1208;
+  --section-bg2: #0D1A0D;
+  --section-bg3: #1A0D0D;
+}
+
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-weight: 300; line-height: 1.8; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 60px;
+}
+.header-logo { font-family: 'Cinzel', serif; font-size: 18px; color: var(--gold); text-decoration: none; letter-spacing: 0.1em; }
+header nav ul { list-style: none; display: flex; gap: 28px; }
+header nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; letter-spacing: 0.12em; transition: color 0.3s; position: relative; }
+header nav a:hover { color: var(--gold); }
+header nav a.active { color: var(--gold); }
+header nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); }
+.btn-ticket { background: var(--gold); color: var(--dark); padding: 8px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; transition: background 0.3s; }
+.btn-ticket:hover { background: var(--gold-light); }
+
+/* ===== HAMBURGER ===== */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px; background: none; border: none;
+  cursor: pointer; padding: 4px; z-index: 200;
+}
+.hamburger span { display: block; width: 100%; height: 1.5px; background: var(--gold); transition: transform 0.35s, opacity 0.35s; transform-origin: center; }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,10,10,0.97); z-index: 150;
+  flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.35s;
+}
+.mobile-menu.open { display: flex; opacity: 1; }
+.mobile-menu a {
+  display: block; color: var(--text-muted); text-decoration: none;
+  font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.35em;
+  padding: 18px 40px; border-bottom: 1px solid rgba(201,168,76,0.1);
+  width: 260px; text-align: center; transition: color 0.3s, background 0.3s;
+}
+.mobile-menu a:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+.mobile-menu a:hover { color: var(--gold); background: rgba(201,168,76,0.05); }
+.mobile-menu .menu-ticket { margin-top: 28px; background: var(--gold); color: var(--dark) !important; font-weight: 700; border: none !important; }
+.mobile-menu .menu-ticket:hover { background: var(--gold-light) !important; }
+
+@media (max-width: 900px) {
+  header nav, header .btn-ticket { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ===== SUB HERO ===== */
+.sub-hero { padding-top: 60px; background: var(--dark3); text-align: center; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.15); position: relative; overflow: hidden; }
+.sub-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 60%); }
+.sub-hero-inner { position: relative; padding-top: 60px; }
+.sub-hero-label { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.sub-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 4vw, 40px); font-weight: 300; letter-spacing: 0.2em; }
+.sub-hero-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.3s; }
+.sub-hero-back:hover { color: var(--gold); }
+.sub-hero-back::before { content: '\2190'; margin-right: 4px; }
+
+/* ===== SECTIONS ===== */
+section { padding: 80px 0; }
+.section-inner { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+.section-label { text-align: center; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.section-title { text-align: center; font-family: 'Noto Serif JP', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 300; letter-spacing: 0.15em; margin-bottom: 60px; display: block; }
+.divider { width: 60px; height: 1px; background: var(--gold); margin: 24px auto; opacity: 0.6; }
+.text-center { text-align: center; }
+
+/* ===== BUTTONS ===== */
+.btn-primary { display: inline-block; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 14px 40px; font-size: 13px; letter-spacing: 0.2em; text-decoration: none; transition: all 0.3s; margin: 0 8px; }
+.btn-primary:hover { background: var(--gold); color: var(--dark); }
+.btn-primary.filled { background: var(--gold); color: var(--dark); }
+.btn-primary.filled:hover { background: var(--gold-light); }
+.btn-more { display: inline-block; margin-top: 40px; padding: 12px 36px; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); font-size: 12px; letter-spacing: 0.25em; text-decoration: none; transition: all 0.3s; }
+.btn-more:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+
+/* ===== HOME BUTTON ===== */
+.home-btn-wrap { text-align: center; padding: 60px 0 80px; background: var(--dark); border-top: 1px solid rgba(201,168,76,0.15); }
+.home-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 48px; border: 1px solid rgba(201,168,76,0.5); color: var(--gold); font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.3em; text-decoration: none; text-transform: uppercase; transition: all 0.35s; position: relative; overflow: hidden; }
+.home-btn::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; z-index: 0; }
+.home-btn:hover::before { transform: scaleX(1); }
+.home-btn span, .home-btn svg { position: relative; z-index: 1; transition: color 0.35s; }
+.home-btn:hover span { color: var(--dark); }
+.home-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+.home-btn:hover svg { stroke: var(--dark); }
+
+/* ===== FOOTER ===== */
+footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); padding: 60px 32px 32px; }
+.footer-inner { max-width: 960px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 40px; }
+.footer-logo { font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); margin-bottom: 8px; }
+.footer-org { font-size: 12px; color: var(--text-muted); line-height: 1.9; }
+.footer-sns { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+.sns-btn { display: flex; align-items: center; gap: 10px; padding: 10px 20px; border: 1px solid rgba(201,168,76,0.3); color: var(--text-muted); text-decoration: none; font-size: 12px; letter-spacing: 0.1em; transition: all 0.3s; }
+.sns-btn:hover { border-color: var(--gold); color: var(--gold); }
+.sns-btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+.footer-nav { display: flex; gap: 32px; }
+.footer-nav-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-nav-col a { font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s; }
+.footer-nav-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; text-align: center; font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 0 56px 0 16px;
+    display: flex;
+    align-items: center;
   }
-  </script>
+  .header-logo {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  /* ハンバーガーは </header> の外にあるため画面右上に固定配置 */
+  .hamburger {
+    position: fixed;
+    top: 0;
+    right: 16px;
+    height: 60px;
+    width: 44px;
+    z-index: 300;
+    justify-content: center;
+  }
+  .footer-top { flex-direction: column; }
+  .footer-nav { flex-direction: column; gap: 24px; }
+  section { padding: 60px 0; }
+  .section-inner { padding: 0 20px; }
+}
 
-  <style>
+/* ===== FAQ アコーディオン ===== */
+.faq-list { display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(255,255,255,0.02);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+}
+.faq-item[open] { border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.04); }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::before {
+  content: 'Q';
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+.faq-item summary::after {
+  content: '';
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+  transition: transform 0.3s;
+}
+.faq-item[open] summary::after { transform: rotate(-135deg); }
+.faq-item summary:hover { color: var(--gold); }
+.faq-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 0;
+  padding: 0 24px 22px 24px;
+  font-size: 15px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+.faq-answer::before {
+  content: 'A';
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  color: rgba(201,168,76,0.7);
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .faq-item summary { padding: 16px 18px; font-size: 15px; gap: 10px; }
+  .faq-item summary::before { font-size: 16px; width: 18px; }
+  .faq-answer { padding: 0 18px 18px 18px; font-size: 14px; gap: 10px; }
+  .faq-answer::before { font-size: 15px; width: 18px; }
+}
 
-    .hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#0A0806; }
-    .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.15) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(139,26,26,0.4) 0%, transparent 50%); }
-    .hero-img { position:absolute; inset:0; background-image:url('images/index_key_visual.png'); background-size:cover; background-position:center; }
-    .hero-content { position:relative; text-align:center; padding:20px; animation:fadeInUp 1.2s ease both; }
-    .hero-content::before { content:''; position:absolute; inset:-80px -100px; background:radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%, transparent 72%); z-index:-1; pointer-events:none; }
-    .hero-label { font-size:11px; letter-spacing:0.4em; color:#f0c84a; margin-bottom:16px; text-transform:uppercase; text-shadow:0 1px 10px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.9); }
-    .hero .btn-primary { border-color:rgba(201,168,76,0.9); color:#f0e8d8; text-shadow:0 1px 6px rgba(0,0,0,0.9); box-shadow:0 0 12px rgba(0,0,0,0.6); background:rgba(0,0,0,0.35); }
-    .hero .btn-primary:hover { background:var(--gold); color:var(--dark); text-shadow:none; }
-    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-    .hero-label { font-size:11px; letter-spacing:0.4em; color:var(--gold); margin-bottom:16px; text-transform:uppercase; text-shadow:0 1px 8px rgba(0,0,0,0.8); }
-    .hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(36px,6vw,72px); font-weight:300; letter-spacing:0.2em; line-height:1.3; margin-bottom:8px; text-shadow:0 2px 16px rgba(0,0,0,0.9),0 0 40px rgba(0,0,0,0.6); }
-    .hero-subtitle { font-family:'Cinzel',serif; font-size:clamp(14px,2vw,20px); color:var(--gold); letter-spacing:0.25em; margin-bottom:32px; text-shadow:0 1px 8px rgba(0,0,0,0.8); }
-    .hero-date { font-size:13px; color:#e8dcc8; letter-spacing:0.15em; margin-bottom:40px; text-shadow:0 1px 8px rgba(0,0,0,0.9); }
-    .hero-scroll { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-muted); font-size:10px; letter-spacing:0.3em; animation:bounce 2s infinite; }
-    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
-    .hero-scroll::after { content:''; display:block; width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); }
-    .intro-section { background:var(--section-bg1); position:relative; overflow:hidden; }
-    .intro-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%); }
-    .intro-text { font-family:'Noto Serif JP',serif; font-size:15px; line-height:2.2; text-align:center; color:var(--text); max-width:700px; margin:0 auto 24px; font-weight:300; }
-    .story-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-    .story-image { aspect-ratio:3/4; background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:12px; letter-spacing:0.2em; overflow:hidden; }
-    .story-text-p { font-size:15px; line-height:2.2; color:#ffffff; }
-    .story-text-p p { margin-bottom:20px; }
-    .character-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
-    .character-card { text-align:center; }
-    .character-photo { aspect-ratio:3/4; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15); margin-bottom:20px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; }
-    .character-role { font-size:10px; color:var(--gold); letter-spacing:0.3em; text-transform:uppercase; margin-bottom:4px; }
-    .character-name { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:400; margin-bottom:12px; }
-    .character-desc { font-size:13px; color:var(--text-muted); line-height:1.9; }
-    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .gallery-item { aspect-ratio:4/3; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; transition:transform 0.3s; }
-    .gallery-item:hover { transform:scale(1.02); }
-    .music-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
-    .music-card { text-decoration:none; color:inherit; }
-    .music-thumb { aspect-ratio:16/9; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1); margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; letter-spacing:0.2em; overflow:hidden; }
-    .music-title-sm { font-family:'Noto Serif JP',serif; font-size:15px; color:var(--gold); margin-bottom:8px; }
-    .music-desc-sm { font-size:13px; color:var(--text-muted); line-height:1.8; }
-    .cast-grid-top { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
-    .cast-card-top { text-align:center; }
-    .cast-photo-top { aspect-ratio:3/4; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.12); margin-bottom:14px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:11px; overflow:hidden; }
-    .cast-role-top { font-size:10px; color:var(--gold); letter-spacing:0.2em; margin-bottom:4px; }
-    .cast-name-top { font-family:'Noto Serif JP',serif; font-size:15px; }
-    .staff-divider { border:none; border-top:1px solid rgba(201,168,76,0.25); margin:72px 0; position:relative; }
-    .staff-divider::after { content:''; position:absolute; top:-3px; left:50%; transform:translateX(-50%); width:40px; height:5px; background:var(--gold); opacity:0.5; }
-    .staff-summary { max-width:480px; margin:0 auto; }
-    .staff-summary-row { display:flex; align-items:baseline; gap:24px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:14px; }
-    .staff-summary-role { color:var(--text-muted); font-size:12px; letter-spacing:0.1em; min-width:110px; }
-    .staff-summary-name { color:var(--text); }
-    .ticket-box { background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.3); padding:60px 48px; text-align:center; }
-    .ticket-title { font-family:'Cinzel',serif; font-size:22px; color:var(--gold); letter-spacing:0.3em; margin-bottom:24px; }
-    .ticket-info { font-size:15px; color:var(--text-muted); line-height:2; margin-bottom:40px; }
-    .ticket-info strong { color:var(--text); }
-    .contact-top-box { text-align:center; border:1px solid rgba(201,168,76,0.25); background:rgba(201,168,76,0.04); padding:52px 40px; }
-    .contact-top-text { font-size:14px; color:var(--text-muted); line-height:2.2; margin-bottom:36px; }
-    .section-bg-img { position:relative; background-size:cover; background-position:center; background-attachment:fixed; }
-    .section-bg-img::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.6); z-index:0; }
-    .section-bg-img > .section-inner { position:relative; z-index:1; }
-    /* ストーリー：オーバーレイを強め＋上部に区切りライン */
-    .story-bg-img::before { background:rgba(0,0,0,0.60); }
-    .story-bg-img { border-top:2px solid rgba(201,168,76,0.5); }
-    @media (max-width:768px) { .section-bg-img { background-attachment:scroll; background-size:200%; background-position:center 30%; } }
-    @media (max-width:768px) {
-      .story-content,.character-grid,.music-grid { grid-template-columns:1fr; }
-      .cast-grid-top { grid-template-columns:repeat(2,1fr); }
-      .gallery-grid { grid-template-columns:repeat(2,1fr); }
-      .ticket-box,.contact-top-box { padding:36px 20px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="index.html" class="header-logo">沈黙町とアメル</a>
-    <nav>
-      <ul>
-        <li><a href="#news">NEWS</a></li>
-        <li><a href="#story">STORY</a></li>
-        <li><a href="#character">CHARACTER</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#music">MUSIC</a></li>
-        <li><a href="#cast">CAST</a></li>
-        <li><a href="#staff">STAFF</a></li>
-        <li><a href="#ticket">TICKET</a></li>
-        <li><a href="#contact-top">CONTACT</a></li>
-      </ul>
-    </nav>
-    <a href="#ticket"  rel="noopener" class="btn-ticket">チケット購入</a>
-  </header>
-  <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
-  <div class="mobile-menu">
-    <a href="#news">NEWS</a>
-    <a href="#story">STORY</a>
-    <a href="#character">CHARACTER</a>
-    <a href="#gallery">GALLERY</a>
-    <a href="#music">MUSIC</a>
-    <a href="#cast">CAST</a>
-    <a href="#staff">STAFF</a>
-    <a href="#ticket">TICKET</a>
-    <a href="#contact-top">CONTACT</a>
-    <a href="#ticket" rel="noopener" class="menu-ticket">チケット購入</a>
-  </div>
+/* ===== ニュース一覧 ===== */
+.news-list { max-width: 880px; margin: 0 auto; border-top: 1px solid rgba(201,168,76,0.2); }
+.news-item { display: flex; align-items: center; gap: 24px; padding: 22px 8px; border-bottom: 1px solid rgba(255,255,255,0.07); text-decoration: none; color: var(--text); transition: background 0.3s, color 0.3s; }
+.news-item:hover { background: rgba(201,168,76,0.04); color: var(--gold); }
+.news-date { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0; }
+.news-tag { font-size: 11px; color: var(--text-muted); border: 1px solid rgba(201,168,76,0.35); padding: 3px 12px; letter-spacing: 0.1em; white-space: nowrap; flex-shrink: 0; }
+.news-text { font-size: 15px; line-height: 1.6; }
+@media (max-width: 768px) {
+  .news-item { flex-wrap: wrap; gap: 8px 14px; padding: 18px 4px; }
+  .news-date { font-size: 12px; }
+  .news-text { flex-basis: 100%; font-size: 14px; }
+}
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-bg"></div>
-    <div class="hero-img"></div>
-    <div class="hero-content">
-      <p class="hero-label">Musical — 2026</p>
-      <h1 class="hero-title">沈黙町とアメル</h1>
-      <p class="hero-subtitle">～こだま町に響く覚悟の鐘音～</p>
-      <p class="hero-date">2026年7月5日（日）12:00〜 ／ 17:00〜<br>小牧市まなび創造館 あさひホール（ラピオ5F）</p>
-      <div>
-        <a href="#intro" class="btn-primary">作品について</a>
-        <a href="#ticket" class="btn-primary filled">チケット購入</a>
-      </div>
-    </div>
-    <div class="hero-scroll">SCROLL</div>
-  </section>
+/* ===== ニュース詳細 ===== */
+.news-detail-wrap { max-width: 720px; margin: 0 auto; }
+.news-detail-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.news-detail-date { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); letter-spacing: 0.08em; }
+.news-detail-tag { font-size: 11px; color: var(--text-muted); border: 1px solid rgba(201,168,76,0.35); padding: 3px 12px; letter-spacing: 0.1em; }
+.news-detail-title { font-family: 'Noto Serif JP', serif; font-size: clamp(22px, 3.5vw, 30px); font-weight: 400; line-height: 1.6; letter-spacing: 0.06em; margin-bottom: 44px; padding-bottom: 28px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.news-detail-body { font-size: 15px; line-height: 2; color: var(--text); }
+.news-detail-body p { margin-bottom: 24px; }
+.news-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.3s; }
+.news-back::before { content: '\2190'; }
+.news-back:hover { color: var(--gold); }
 
-  <!-- NEWS -->
-  <section style="background:var(--dark2);" id="news">
-    <div class="section-inner">
-      <p class="section-label reveal">News</p>
-      <h2 class="section-title reveal">ニュース</h2>
-      <div class="news-list">
-        <a href="news-soldout-1200.html" class="news-item">
-          <span class="news-date">2026.06.13</span>
-          <span class="news-tag">チケット</span>
-          <span class="news-text">12:00公演 満員御礼のお知らせ</span>
-        </a>
-        <a href="news-invite.html" class="news-item">
-          <span class="news-date">2026.06.11</span>
-          <span class="news-tag">チケット</span>
-          <span class="news-text">小牧市の小中学生 先着150名を無料招待します</span>
-        </a>
-        <a href="news-rehearsal-0607.html" class="news-item">
-          <span class="news-date">2026.06.09</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（6月6・7日）</span>
-        </a>
-        <a href="news-rehearsal-0531.html" class="news-item">
-          <span class="news-date">2026.06.02</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（5月30・31日）</span>
-        </a>
-      </div>
-      <div class="text-center">
-        <a href="news.html" class="btn-more">ニュース一覧へ</a>
-      </div>
-    </div>
-  </section>
+/* ニュース内の情報ボックス・CTA */
+.ticket-info-box { border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); padding: 28px 32px; margin: 32px 0; }
+.ticket-info-box h3 { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 400; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 18px; }
+.ticket-info-box dl { display: grid; grid-template-columns: auto 1fr; gap: 12px 20px; font-size: 14px; }
+.ticket-info-box dt { color: var(--text-muted); white-space: nowrap; }
+.ticket-info-box dd { color: var(--text); margin: 0; }
+.ticket-cta { text-align: center; margin: 40px 0; padding: 28px; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); }
+.ticket-cta p { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; }
+@media (max-width: 768px) {
+  .ticket-info-box { padding: 22px 20px; }
+  .ticket-info-box dl { grid-template-columns: 1fr; gap: 4px 0; }
+  .ticket-info-box dd { margin-bottom: 12px; }
+}
 
-  <!-- INTRO -->
-  <section class="intro-section section-bg-img" id="intro" style="background-image:url('images/はじめに.png');">
-    <div class="section-inner">
-      <p class="section-label reveal">Introduction</p>
-      <h2 class="section-title reveal">はじめに</h2>
-      <div class="divider"></div>
-      <p class="intro-text">私たちは、学生主体でオリジナルミュージカルをゼロから制作しています。<br>誰かに「無理だよ」と言われたり、自分で自分の夢を笑ってしまったり。<br>大人になるほど、夢は"夢らしきもの"に変わっていくことがあります。</p>
-      <p class="intro-text">『沈黙町とアメル～こだま町に響く覚悟の鐘音～』は、音楽が禁じられた街「こだま町」を舞台に、<br>夢と現実の狭間で揺れる少年の物語です。<br>派手な熱狂ではなく、胸が締まるような静かな強さと、踏み出す意志を描きます。</p>
-      <p class="intro-text">小牧から生まれる"挑戦の物語"が、<br>あなたの中の小さな覚悟の鐘音をもう一度鳴らすきっかけになりますように。</p>
-    </div>
-  </section>
+/* ===== モバイル固定CTAバー ===== */
+@media (max-width: 768px) {
+  body { padding-bottom: 60px; }
+  .mobile-cta {
+    display: flex;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 60px;
+    z-index: 500;
+    background: rgba(10,8,6,0.97);
+    border-top: 1px solid rgba(201,168,76,0.35);
+    backdrop-filter: blur(6px);
+  }
+  .mobile-cta a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .mobile-cta a:active { opacity: 0.7; }
+  .mobile-cta .cta-buy { background: var(--gold); color: var(--dark); font-weight: 700; }
+  .mobile-cta .cta-invite { color: var(--gold); border-right: 1px solid rgba(201,168,76,0.35); }
+  /* メニューopen中はCTAを非表示 */
+  body.menu-open .mobile-cta { display: none; }
+}
+@media (min-width: 769px) {
+  .mobile-cta { display: none; }
+}
 
-  <!-- STORY -->
-  <section class="section-bg-img story-bg-img" id="story" style="background-image:url('images/はじめに.png');">
-    <div class="section-inner">
-      <p class="section-label reveal">Story</p>
-      <h2 class="section-title reveal">ストーリー</h2>
-      <div class="story-content">
-        <div class="story-image"><img loading="lazy" decoding="async" src="images/index_story_visual.png" alt="キャラクター名" 
-       style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div>
-          <div class="story-text-p">
-            <p>音楽が禁じられた街「こだま町」。歌うことも、奏でることも、楽しむことすら罪とされる世界で、少年ルーファスは<br>"音楽が好き"という気持ちを胸の奥に閉じ込めて生きてきた。夢はいつしか、夢らしきものに変わっていく。</p>
-            <p>ある日、音楽の精霊アメルとかつての音楽家イバンとの<br>出会いが、静かにルーファスの心を揺らし始める。<br>これは、"夢を見ること"の素晴らしさと、誰かの中に残る覚悟の鐘音をもう一度鳴らす物語。</p>
-          </div>
-          <a href="story.html" class="btn-more">もっと読む</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHARACTER -->
-  <section style="background:var(--dark3);" id="character">
-    <div class="section-inner">
-      <p class="section-label reveal">Character</p>
-      <h2 class="section-title reveal">登場人物</h2>
-      <div style="text-align:center;">
-        <img src="images/index_correlation_diagram.png" alt="こだま町 相関図" style="width:100%; max-width:900px; height:auto; border-radius:8px;" loading="lazy">
-      </div>
-      <div class="text-center">
-        <a href="character.html" class="btn-more">登場人物をもっと見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section style="background:var(--section-bg1);" id="gallery">
-    <div class="section-inner">
-      <p class="section-label reveal">Gallery</p>
-      <h2 class="section-title reveal">ギャラリー</h2>
-      <div class="gallery-grid">
-        <div class="g-item" data-cat="rehearsal"><div class="g-img tall">
-          <img loading="lazy" decoding="async" src="images/gallery_01.jpeg" alt="稽古風景" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-        <div class="g-item" data-cat="rehearsal"><div class="g-img">
-          <img loading="lazy" decoding="async" src="images/gallery_03.jpeg" alt="ダンス練習" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-        <div class="g-item" data-cat="rehearsal"><div class="g-img">
-          <img loading="lazy" decoding="async" src="images/gallery_10.jpeg" alt="お昼休憩" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-        <div class="g-item" data-cat="rehearsal"><div class="g-img tall">
-          <img loading="lazy" decoding="async" src="images/gallery_18.jpeg" alt="ダンス練習" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-        <div class="g-item" data-cat="rehearsal"><div class="g-img">
-          <img loading="lazy" decoding="async" src="images/gallery_25.jpeg" alt="集合写真" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-        <div class="g-item" data-cat="rehearsal"><div class="g-img">
-          <img loading="lazy" decoding="async" src="images/gallery_20.jpeg" alt="演技シーン" style="width:100%;height:100%;object-fit:cover;">
-        </div></div>
-      </div>
-      <div class="text-center">
-        <a href="gallery.html" class="btn-more">ギャラリーをもっと見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MUSIC -->
-  <section style="background:var(--section-bg3);" id="music">
-    <div class="section-inner">
-      <p class="section-label reveal">Music Number</p>
-      <h2 class="section-title reveal">ミュージックナンバー</h2>
-      <div class="music-grid">
-        <a href="music.html" class="music-card">
-          <div class="music-thumb"><img loading="lazy" decoding="async" src="images/music_kakugo.JPG" alt="覚悟の歌" style="width:100%; height:100%; object-fit:cover;"></div>
-          <p style="text-align:right; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; margin-top:6px;">作曲　加藤千広 ／ 作詞　平野一成</p>
-          <div class="music-act">主題歌</div>
-          <p class="music-title-sm">「覚悟の歌」</p>
-          <p class="music-desc-sm">かつてのこだま町で長年歌われてきた歌が、今ふたたび覚悟の鐘音として鳴り響く。</p>
-        </a>
-        <a href="music.html" class="music-card">
-          <div class="music-thumb">Coming Soon</div>
-          <div class="music-act">出会い</div>
-          <p class="music-title-sm">「アメルとの出会い」</p>
-          <p class="music-desc-sm">沈黙の世界に、ひとしずくの光が落ちる瞬間。</p>
-        </a>
-        <a href="music.html" class="music-card">
-          <div class="music-thumb">Coming Soon</div>
-          <div class="music-act">共鳴</div>
-          <p class="music-title-sm">「あなたの夢私の夢」</p>
-          <p class="music-desc-sm">それぞれの夢が重なり、支え合う終盤のナンバー。</p>
-        </a>
-      </div>
-      <div class="text-center">
-        <a href="music.html" class="btn-more">ミュージックナンバーをもっと見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAST & STAFF -->
-  <section style="background:var(--dark3);" id="cast">
-    <div class="section-inner">
-      <p class="section-label reveal">Cast</p>
-      <h2 class="section-title reveal">キャスト</h2>
-      <p class="section-label" style="margin-bottom:24px;">MAIN CAST</p>
-      <div class="cast-grid-top">
-        <div class="cast-card-top">
-          <div class="cast-photo-top">
-            <img loading="lazy" decoding="async" src="images/cast_hirano.JPG" alt="平野一成" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-          <p class="cast-role-top">ルーファス役</p>
-          <p class="cast-name-top">平野一成</p>
-        </div>
-        <div class="cast-card-top">
-          <div class="cast-photo-top">
-            <img loading="lazy" decoding="async" src="images/cast_tanaka.JPG" alt="田中杏奈" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-          <p class="cast-role-top">アメル役</p>
-          <p class="cast-name-top">田中杏奈</p>
-        </div>
-        <div class="cast-card-top">
-          <div class="cast-photo-top">
-            <img loading="lazy" decoding="async" src="images/cast_murakami.JPG" alt="村上知里" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-          <p class="cast-role-top">イバン役</p>
-          <p class="cast-name-top">村上知里</p>
-        </div>
-        <div class="cast-card-top">
-          <div class="cast-photo-top">
-            <img loading="lazy" decoding="async" src="images/cast_otoware.JPG" alt="荻須隆文" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-          <p class="cast-role-top">オトワレ役</p>
-          <p class="cast-name-top">荻須隆文</p>
-        </div>
-      </div>
-      <div class="text-center">
-        <a href="cast.html" class="btn-more">キャスト一覧へ</a>
-      </div>
-
-      <div class="staff-divider" id="staff"></div>
-
-      <p class="section-label reveal" style="margin-bottom:8px;">Staff</p>
-      <h2 class="section-title reveal" style="margin-bottom:40px;">スタッフ</h2>
-      <div class="staff-summary">
-        <div class="staff-summary-row"><span class="staff-summary-role">製作総指揮・原案</span><span class="staff-summary-name">平野一成</span></div>
-        <div class="staff-summary-row"><span class="staff-summary-role">演出・脚本・振付</span><span class="staff-summary-name">MaRiNa</span></div>
-        <div class="staff-summary-row"><span class="staff-summary-role">舞台監督</span><span class="staff-summary-name">蜷川湖音（ライズ）</span></div>
-        <div class="staff-summary-row"><span class="staff-summary-role">舞台美術</span><span class="staff-summary-name">池戸宣人 (異色unit俺たちの戦いはこれからだ！)</span></div>
-        <div class="staff-summary-row"><span class="staff-summary-role">照明</span><span class="staff-summary-name">花植厚美</span></div>
-        <div class="staff-summary-row"><span class="staff-summary-role">主催</span><span class="staff-summary-name">学生団体BOOMS</span></div>
-      </div>
-      <div class="text-center">
-        <a href="staff.html" class="btn-more">スタッフ一覧へ</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TICKET -->
-  <section style="background:var(--section-bg1);" id="ticket">
-    <div class="section-inner">
-      <p class="section-label reveal">Ticket</p>
-      <h2 class="section-title reveal">チケット・公演情報</h2>
-      <div class="ticket-box">
-        <p class="ticket-title">TICKET INFORMATION</p>
-        <div class="ticket-info">
-          <p><strong>公演日</strong>　2026年7月5日（日）</p>
-          <p><strong>開演</strong>　12:00〜 ／ 17:00〜<br><span style="font-size:12px;color:var(--text-muted);">ロビー開場：各60分前　／　客席開場：各30分前</span></p>
-          <p><strong>会場</strong>　小牧市まなび創造館 あさひホール（ラピオ5F）<br><span style="font-size:12px;color:var(--text-muted);">〒485-0041 愛知県小牧市小牧３－５５５ ラピオ５Ｆ</span></p>
-          <p><strong>料金（前売）</strong>　一般 3,300円 ／ 学生 2,700円 ／ U12 1,800円</p>
-          <p><strong>料金（当日）</strong>　一般 3,500円 ／ 学生 2,900円 ／ U12 1,800円</p>
-          <p><strong>上演時間</strong>　約90分（休憩あり）</p>
-          <p><strong>主催</strong>　学生団体BOOMS</p>
-          <p><strong>後援</strong>　小牧市 ／ 小牧市教育委員会</p>
-          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">小牧市夢にチャレンジ採択プロジェクト</p>
-        </div>
-        <div style="margin:28px 0;padding:24px 20px;border:1px solid rgba(201,168,76,0.35);background:rgba(201,168,76,0.05);text-align:center;">
-          <p style="font-family:'Noto Serif JP',serif;font-size:15px;color:var(--gold);letter-spacing:0.12em;margin-bottom:14px;">小牧市の小中学生 無料招待のお知らせ</p>
-          <p style="font-size:13px;line-height:2;margin-bottom:6px;">小牧市の小中学生は、先着150名を無料招待しています。</p>
-          <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;"><span style="color:#e0a0a0;">12:00公演：25名【満席】</span>　／　17:00公演：125名</p>
-          <p style="font-size:13px;line-height:2;margin-bottom:18px;">無料招待をご希望の方は、以下のフォームからお申し込みください。</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0-DGTOQz9Aph91cufCizxHSsqn_IEjJgRlSxfhcAqgD2T-g/viewform" target="_blank" rel="noopener" class="btn-primary">無料招待のお申し込みはこちら</a>
-        </div>
-        <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="btn-primary filled">チケット購入はこちら</a>
-        <a href="ticket-info.html" class="btn-primary" style="margin-top:16px;">ご観劇の方へ（当日の案内・アクセス）</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section style="background:var(--dark2);" id="contact-top">
-    <div class="section-inner">
-      <p class="section-label reveal">Contact</p>
-      <h2 class="section-title reveal">お問い合わせ</h2>
-      <div class="contact-top-box reveal">
-        <p class="contact-top-text">
-          公演に関するご質問・ご不明点はお問い合わせフォームよりお気軽にどうぞ。<br>
-          通常2〜3日以内にご返信いたします。
-        </p>
-        <a href="contact.html" class="btn-primary filled">お問い合わせフォームへ</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <p class="footer-logo">沈黙町とアメル</p>
-          <p class="footer-org">主催：学生団体BOOMS<br>email: booms.musical.jim2026@gmail.com<br>後援：小牧市 ／ 小牧市教育委員会<br>小牧市夢にチャレンジ採択プロジェクト</p>
-          <div class="footer-sns">
-            <a href="https://www.instagram.com/booms_musical/" target="_blank" class="sns-btn">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
-            </a>
-          </div>
-        </div>
-        <nav class="footer-nav">
-          <div class="footer-nav-col">
-            <ul>
-              <li><a href="#news">ニュース</a></li>
-              <li><a href="#intro">はじめに</a></li>
-              <li><a href="story.html">ストーリー</a></li>
-              <li><a href="character.html">登場人物</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-col">
-            <ul>
-              <li><a href="gallery.html">ギャラリー</a></li>
-              <li><a href="music.html">ミュージックナンバー</a></li>
-              <li><a href="cast.html">キャスト</a></li>
-              <li><a href="staff.html">スタッフ</a></li>
-              <li><a href="#ticket">チケット</a></li>
-              <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 学生団体BOOMS All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-  <script>
-    // Hamburger
-    const hbg = document.querySelector('.hamburger');
-    const mmenu = document.querySelector('.mobile-menu');
-    if (hbg && mmenu) {
-      hbg.addEventListener('click', () => {
-        hbg.classList.toggle('open');
-        mmenu.classList.toggle('open');
-        const isOpen = mmenu.classList.contains('open');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-        document.body.classList.toggle('menu-open', isOpen);
-      });
-      mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        hbg.classList.remove('open');
-        mmenu.classList.remove('open');
-        document.body.style.overflow = '';
-        document.body.classList.remove('menu-open');
-      }));
-    }
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    // Active nav highlight
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('header nav a, .mobile-menu a').forEach(a => {
-      const href = a.getAttribute('href') || '';
-      const page = href.split('#')[0].split('/').pop();
-      if (page && page === currentPage) a.classList.add('active');
-    });
-  </script>
-
-  <!-- モバイル固定CTA -->
-  <div class="mobile-cta">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0-DGTOQz9Aph91cufCizxHSsqn_IEjJgRlSxfhcAqgD2T-g/viewform" target="_blank" rel="noopener" class="cta-invite">無料招待申込</a>
-    <a href="https://booms.corich.co/amel/tiket" target="_blank" rel="noopener" class="cta-buy">チケット購入</a>
-  </div>
-</body>
-</html>
+/* ===== ニュース一覧スマホ余白 ===== */
+@media (max-width: 768px) {
+  .news-list { padding: 0 16px; }
+  .news-detail-wrap { padding: 0 20px; }
+}

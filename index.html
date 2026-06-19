@@ -509,12 +509,15 @@
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
         const isOpen = mmenu.classList.contains('open');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         document.body.classList.remove('menu-open');
       }));

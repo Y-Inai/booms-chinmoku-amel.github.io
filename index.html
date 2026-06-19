@@ -62,6 +62,28 @@
     .intro-section { background:var(--section-bg1); position:relative; overflow:hidden; }
     .intro-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%); }
     .intro-text { font-family:'Noto Serif JP',serif; font-size:15px; line-height:2.2; text-align:center; color:var(--text); max-width:700px; margin:0 auto 24px; font-weight:300; }
+    .rep-msg-section { position:relative; background-size:cover; background-position:center; background-attachment:fixed; }
+    .rep-msg-section::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.72); z-index:0; }
+    .rep-msg-section > .section-inner { position:relative; z-index:1; }
+    .rep-msg-inner { max-width:680px; margin:0 auto; }
+    .rep-name { font-family:'Noto Serif JP',serif; font-size:13px; color:var(--gold); letter-spacing:0.2em; text-align:center; margin-bottom:48px; }
+    .rep-profile { display:flex; align-items:center; gap:32px; margin-bottom:48px; }
+    .rep-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid rgba(201,168,76,0.5); flex-shrink:0; }
+    .rep-profile-info { text-align:left; }
+    .rep-profile-info .rep-name { text-align:left; margin-bottom:6px; font-size:16px; letter-spacing:0.1em; }
+    .rep-profile-info .rep-role { font-size:12px; color:var(--text-muted); letter-spacing:0.15em; line-height:1.8; }
+    @media (max-width:768px) {
+      .rep-profile { flex-direction:column; align-items:center; gap:20px; }
+      .rep-profile-info { text-align:center; }
+      .rep-profile-info .rep-name { text-align:center; }
+    }
+    .rep-text { font-family:'Noto Serif JP',serif; font-size:15px; line-height:2.4; color:var(--text); margin-bottom:28px; font-weight:300; }
+    .rep-quote { font-family:'Noto Serif JP',serif; font-size:18px; color:var(--gold); letter-spacing:0.15em; text-align:center; margin:48px 0 40px; padding:28px 0; border-top:1px solid rgba(201,168,76,0.3); border-bottom:1px solid rgba(201,168,76,0.3); }
+    @media (max-width:768px) {
+      .rep-msg-section { background-attachment:scroll; }
+      .rep-text { font-size:14px; line-height:2.2; }
+      .rep-quote { font-size:16px; }
+    }
     .story-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
     .story-image { aspect-ratio:3/4; background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:12px; letter-spacing:0.2em; overflow:hidden; }
     .story-text-p { font-size:15px; line-height:2.2; color:#ffffff; }
@@ -118,6 +140,7 @@
     <nav>
       <ul>
         <li><a href="#news">NEWS</a></li>
+        <li><a href="#message">MESSAGE</a></li>
         <li><a href="#story">STORY</a></li>
         <li><a href="#character">CHARACTER</a></li>
         <li><a href="#gallery">GALLERY</a></li>
@@ -133,6 +156,7 @@
   <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   <div class="mobile-menu">
     <a href="#news">NEWS</a>
+    <a href="#message">MESSAGE</a>
     <a href="#story">STORY</a>
     <a href="#character">CHARACTER</a>
     <a href="#gallery">GALLERY</a>
@@ -167,6 +191,11 @@
       <p class="section-label reveal">News</p>
       <h2 class="section-title reveal">ニュース</h2>
       <div class="news-list">
+        <a href="news-rehearsal-0614.html" class="news-item">
+          <span class="news-date">2026.06.19</span>
+          <span class="news-tag">稽古情報</span>
+          <span class="news-text">稽古レポート（6月13・14日）</span>
+        </a>
         <a href="news-soldout-1200.html" class="news-item">
           <span class="news-date">2026.06.13</span>
           <span class="news-tag">チケット</span>
@@ -181,11 +210,6 @@
           <span class="news-date">2026.06.09</span>
           <span class="news-tag">稽古情報</span>
           <span class="news-text">稽古レポート（6月6・7日）</span>
-        </a>
-        <a href="news-rehearsal-0531.html" class="news-item">
-          <span class="news-date">2026.06.02</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（5月30・31日）</span>
         </a>
       </div>
       <div class="text-center">
@@ -203,6 +227,37 @@
       <p class="intro-text">私たちは、学生主体でオリジナルミュージカルをゼロから制作しています。<br>誰かに「無理だよ」と言われたり、自分で自分の夢を笑ってしまったり。<br>大人になるほど、夢は"夢らしきもの"に変わっていくことがあります。</p>
       <p class="intro-text">『沈黙町とアメル～こだま町に響く覚悟の鐘音～』は、音楽が禁じられた街「こだま町」を舞台に、<br>夢と現実の狭間で揺れる少年の物語です。<br>派手な熱狂ではなく、胸が締まるような静かな強さと、踏み出す意志を描きます。</p>
       <p class="intro-text">小牧から生まれる"挑戦の物語"が、<br>あなたの中の小さな覚悟の鐘音をもう一度鳴らすきっかけになりますように。</p>
+    </div>
+  </section>
+
+
+  <!-- REPRESENTATIVE MESSAGE -->
+  <section class="rep-msg-section section-bg-img story-bg-img" id="message" style="background-image:url('images/はじめに.png');">
+    <div class="section-inner">
+      <p class="section-label reveal">Message</p>
+      <h2 class="section-title reveal">代表メッセージ</h2>
+      <div class="divider"></div>
+      <div class="rep-msg-inner reveal">
+        <div class="rep-profile">
+          <img src="images/rep_hirano.jpg" alt="学生団体BOOMS代表 平野一成" class="rep-photo" loading="lazy" decoding="async">
+          <div class="rep-profile-info">
+            <p class="rep-name">平野 一成</p>
+            <p class="rep-role">学生団体BOOMS 代表<br>製作総指揮・原案</p>
+          </div>
+        </div>
+        <p class="rep-text">私はこれまで、「何者かになりたい」という想いと、「いや、でも……」という現実の間で揺れながら、「夢らしきもの」を抱えて生きてきました。</p>
+        <p class="rep-text">隣の芝はいつも青く見え、何度も他人を羨んできました。こうしてミュージカルを創っている今も、不安や迷いはあります。</p>
+        <p class="rep-text">それでも、自信がなくても進んできました。</p>
+        <p class="rep-text">この制作でも、ミュージカルを諦めかけたことは何度もありました。仲間が離れ、体制が揺らいだ時期。お金、制作、集客。あらゆる困難が、僕らを押し潰すには十分でした。</p>
+        <p class="rep-text">それでもここまで歩んでこられたのは、愛ある仲間がいたからです。</p>
+        <p class="rep-text">さまざまな人と過ごした、二度と戻らない一瞬一瞬。その積み重ねが、この作品を形づくっています。</p>
+        <p class="rep-text">自信があったから、ここまで来られたのではありません。自信がなくても覚悟を決め、歩み続けてきたからです。</p>
+        <p class="rep-text">そんな自分を誇りに思います。そして、仲間への感謝の気持ちでいっぱいです。</p>
+        <p class="rep-text">この作品には、言葉だけでは伝えきれない想いを込めています。</p>
+        <p class="rep-text">夢を諦めたことのある人へ。<br>今も「夢らしきもの」を抱えている人へ。</p>
+        <p class="rep-quote">「負けるな　信じろ　自分次第さ」</p>
+        <p class="rep-text" style="text-align:center;">この舞台が、皆さまにとって何かを信じるきっかけになれば幸いです。</p>
+      </div>
     </div>
   </section>
 

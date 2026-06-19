@@ -39,7 +39,7 @@
     }
     .diagram-wrap { cursor:zoom-in; }
     .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
-    .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; z-index:201; }
+    .lb-close { position:absolute; top:20px; left:20px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; z-index:201; }
     .lb-img img { max-width:90vw; max-height:90vh; object-fit:contain; }
   </style>
 </head>
@@ -158,12 +158,15 @@
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
         const isOpen = mmenu.classList.contains('open');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         document.body.classList.remove('menu-open');
       }));

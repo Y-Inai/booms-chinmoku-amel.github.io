@@ -31,7 +31,7 @@
     .cast-main-photo { cursor:pointer; }
     .cast-ens-photo { cursor:pointer; }
     .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
-    .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; }
+    .lb-close { position:absolute; top:20px; left:20px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; }
     .lb-prev,.lb-next { background:none; border:1px solid rgba(201,168,76,0.3); color:#C9A84C; font-size:36px; padding:8px 20px; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); transition:all 0.3s; }
     .lb-prev { left:32px; } .lb-next { right:32px; }
     .lb-prev:hover,.lb-next:hover { background:rgba(201,168,76,0.1); }
@@ -232,12 +232,15 @@
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
         const isOpen = mmenu.classList.contains('open');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         document.body.classList.remove('menu-open');
       }));

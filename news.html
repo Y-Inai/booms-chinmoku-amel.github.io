@@ -41,6 +41,8 @@
   </header>
   <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   <div class="mobile-menu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#message">MESSAGE</a>
     <a href="news.html">NEWS</a>
     <a href="story.html">STORY</a>
     <a href="character.html">CHARACTER</a>
@@ -69,46 +71,14 @@
         <button class="filter-btn" data-filter="event">イベント</button>
       </div>
       <div class="news-list">
-        <a href="news-rehearsal-0614.html" class="news-item" data-cat="cast">
-          <span class="news-date">2026.06.19</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（6月13・14日）</span>
-        </a>        
-        <a href="news-soldout-1200.html" class="news-item" data-cat="ticket">
-          <span class="news-date">2026.06.13</span>
-          <span class="news-tag">チケット</span>
-          <span class="news-text">12:00公演 満員御礼のお知らせ</span>
-        </a>
-        <a href="news-invite.html" class="news-item" data-cat="ticket">
-          <span class="news-date">2026.06.11</span>
-          <span class="news-tag">チケット</span>
-          <span class="news-text">小牧市の小中学生 先着150名を無料招待します</span>
-        </a>
-        <a href="news-rehearsal-0607.html" class="news-item" data-cat="cast">
-          <span class="news-date">2026.06.09</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（6月6・7日）</span>
-        </a>
-        <a href="news-rehearsal-0531.html" class="news-item" data-cat="cast">
-          <span class="news-date">2026.06.02</span>
-          <span class="news-tag">稽古情報</span>
-          <span class="news-text">稽古レポート（5月30・31日）</span>
-        </a>
-        <a href="news-website.html" class="news-item" data-cat="info">
-          <span class="news-date">2026.05.01</span>
-          <span class="news-tag">お知らせ</span>
-          <span class="news-text">『沈黙町とアメル』公式ホームページを公開しました</span>
-        </a>
-        <a href="news-ticket.html" class="news-item" data-cat="ticket">
-          <span class="news-date">2026.05.01</span>
-          <span class="news-tag">チケット</span>
-          <span class="news-text">チケットサイト「こりっち」での販売を開始しました</span>
-        </a>
-        <a href="news-crowdfunding.html" class="news-item" data-cat="info">
-          <span class="news-date">2026.04.30</span>
-          <span class="news-tag">お知らせ</span>
-          <span class="news-text">クラウドファンディング、無事終了しました！</span>
-        </a>
+        <a href="news-rehearsal-0614.html" class="news-item" data-cat="cast"><span class="news-date">2026.06.16</span><span class="news-tag">稽古情報</span><span class="news-text">稽古レポート（6月13・14日）</span></a>
+        <a href="news-soldout-1200.html" class="news-item" data-cat="ticket"><span class="news-date">2026.06.13</span><span class="news-tag">チケット</span><span class="news-text">12:00公演 満員御礼のお知らせ</span></a>
+        <a href="news-invite.html" class="news-item" data-cat="ticket"><span class="news-date">2026.06.11</span><span class="news-tag">チケット</span><span class="news-text">小牧市の小中学生 先着150名を無料招待します</span></a>
+        <a href="news-rehearsal-0607.html" class="news-item" data-cat="cast"><span class="news-date">2026.06.09</span><span class="news-tag">稽古情報</span><span class="news-text">稽古レポート（6月6・7日）</span></a>
+        <a href="news-rehearsal-0531.html" class="news-item" data-cat="cast"><span class="news-date">2026.06.02</span><span class="news-tag">稽古情報</span><span class="news-text">稽古レポート（5月30・31日）</span></a>
+        <a href="news-crowdfunding.html" class="news-item" data-cat="info"><span class="news-date">2026.04.30</span><span class="news-tag">お知らせ</span><span class="news-text">クラウドファンディング、無事終了しました！</span></a>
+        <a href="news-website.html" class="news-item" data-cat="info"><span class="news-date">2026.05.01</span><span class="news-tag">お知らせ</span><span class="news-text">『沈黙町とアメル』公式ホームページを公開しました</span></a>
+        <a href="news-ticket.html" class="news-item" data-cat="ticket"><span class="news-date">2026.05.01</span><span class="news-tag">チケット</span><span class="news-text">チケットサイト「こりっち」での販売を開始しました</span></a>
       </div>
     </div>
   </section>
@@ -176,12 +146,15 @@
       hbg.addEventListener('click', () => {
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
-        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+        const isOpen = mmenu.classList.contains('open');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }));
     }
     // Scroll reveal

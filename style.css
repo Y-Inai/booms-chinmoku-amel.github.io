@@ -275,7 +275,7 @@ footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); paddin
     position: fixed;
     left: 0; right: 0; bottom: 0;
     height: 60px;
-    z-index: 500;
+    z-index: 140;
     background: rgba(10,8,6,0.97);
     border-top: 1px solid rgba(201,168,76,0.35);
     backdrop-filter: blur(6px);
@@ -294,7 +294,7 @@ footer { background: #050505; border-top: 1px solid rgba(201,168,76,0.2); paddin
   .mobile-cta .cta-buy { background: var(--gold); color: var(--dark); font-weight: 700; }
   .mobile-cta .cta-invite { color: var(--gold); border-right: 1px solid rgba(201,168,76,0.35); }
   /* メニューopen中はCTAを非表示 */
-  body.menu-open .mobile-cta { display: none; }
+  body.menu-open .mobile-cta { display: none !important; }
 }
 @media (min-width: 769px) {
   .mobile-cta { display: none; }

@@ -39,7 +39,7 @@
     }
     .diagram-wrap { cursor:zoom-in; }
     .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
-    .lb-close { position:absolute; top:12px; left:12px; z-index:400; width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); border:1px solid rgba(201,168,76,0.5); border-radius:50%; color:#C9A84C; font-size:24px; line-height:1; cursor:pointer; }
+    .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:#C9A84C; font-size:28px; cursor:pointer; z-index:201; }
     .lb-img img { max-width:90vw; max-height:90vh; object-fit:contain; }
   </style>
 </head>
@@ -63,6 +63,8 @@
   </header>
   <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   <div class="mobile-menu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#message">MESSAGE</a>
     <a href="news.html">NEWS</a>
     <a href="story.html">STORY</a>
     <a href="character.html">CHARACTER</a>
@@ -156,14 +158,14 @@
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
         const isOpen = mmenu.classList.contains('open');
-        document.body.classList.toggle('menu-open', isOpen);
         document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
-        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }));
     }
     // Scroll reveal

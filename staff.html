@@ -44,6 +44,8 @@
   </header>
   <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   <div class="mobile-menu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#message">MESSAGE</a>
     <a href="news.html">NEWS</a>
     <a href="story.html">STORY</a>
     <a href="character.html">CHARACTER</a>
@@ -150,12 +152,15 @@
       hbg.addEventListener('click', () => {
         hbg.classList.toggle('open');
         mmenu.classList.toggle('open');
-        document.body.style.overflow = mmenu.classList.contains('open') ? 'hidden' : '';
+        const isOpen = mmenu.classList.contains('open');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
       mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         hbg.classList.remove('open');
         mmenu.classList.remove('open');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }));
     }
     // Scroll reveal

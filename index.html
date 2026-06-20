@@ -132,6 +132,16 @@
       .gallery-grid { grid-template-columns:repeat(2,1fr); }
       .ticket-box,.contact-top-box { padding:36px 20px; }
     }
+
+    .hero-countdown { margin-bottom:32px; text-align:center; }
+    .cd-label-top { font-size:11px; letter-spacing:0.3em; color:rgba(201,168,76,0.8); margin-bottom:10px; text-shadow:0 1px 8px rgba(0,0,0,0.9); }
+    .cd-digits { display:flex; gap:20px; justify-content:center; }
+    .cd-block { text-align:center; min-width:52px; }
+    .cd-num { font-family:'Cinzel',serif; font-size:clamp(28px,5vw,44px); color:var(--gold); line-height:1; text-shadow:0 2px 12px rgba(0,0,0,0.9); }
+    .cd-unit { font-size:10px; letter-spacing:0.25em; color:rgba(232,220,200,0.7); margin-top:4px; }
+    .cd-sep { font-family:'Cinzel',serif; font-size:clamp(24px,4vw,36px); color:rgba(201,168,76,0.5); line-height:1; padding-top:2px; text-shadow:0 2px 8px rgba(0,0,0,0.8); }
+    .cd-perf-label { font-size:12px; letter-spacing:0.25em; color:rgba(232,220,200,0.85); margin-top:12px; text-shadow:0 1px 8px rgba(0,0,0,0.9); }
+    .cd-status { font-family:'Noto Serif JP',serif; font-size:16px; color:var(--gold); letter-spacing:0.15em; text-shadow:0 2px 10px rgba(0,0,0,0.9); padding:10px 0; }
   </style>
 </head>
 <body>
@@ -183,6 +193,25 @@
       </div>
     </div>
     <div class="hero-scroll">SCROLL</div>
+  </section>
+
+    <!-- COUNTDOWN -->
+  <section style="background:var(--dark3);padding:48px 0;">
+    <div class="section-inner" style="text-align:center;">
+      <div class="hero-countdown" id="countdown">
+        <p class="cd-label-top" id="cd-title">昼の部まで</p>
+        <div class="cd-digits">
+          <div class="cd-block"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">DAYS</div></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-block"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">HOURS</div></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-block"><div class="cd-num" id="cd-m">--</div><div class="cd-unit">MIN</div></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-block"><div class="cd-num" id="cd-s">--</div><div class="cd-unit">SEC</div></div>
+        </div>
+        <p class="cd-perf-label" id="cd-perf">7月5日　12:00公演 ／ 17:00公演</p>
+      </div>
+    </div>
   </section>
 
   <!-- NEWS -->
@@ -245,7 +274,6 @@
             <p class="rep-role">学生団体BOOMS 代表<br>製作総指揮・原案</p>
           </div>
         </div>
-        <p class="rep-text">学生団体BOOMS代表、本作の製作総指揮と原案を務めております、平野一成です。</p>
         <p class="rep-text">私はこれまで、「何者かになりたい」という想いと、「いや、でも……」という現実の間で揺れながら、「夢らしきもの」を抱えて生きてきました。</p>
         <p class="rep-text">隣の芝はいつも青く見え、何度も他人を羨んできました。こうしてミュージカルを創っている今も、不安や迷いはあります。</p>
         <p class="rep-text">それでも、自信がなくても進んできました。</p>
@@ -253,8 +281,7 @@
         <p class="rep-text">それでもここまで歩んでこられたのは、愛ある仲間がいたからです。</p>
         <p class="rep-text">さまざまな人と過ごした、二度と戻らない一瞬一瞬。その積み重ねが、この作品を形づくっています。</p>
         <p class="rep-text">自信があったから、ここまで来られたのではありません。自信がなくても覚悟を決め、歩み続けてきたからです。</p>
-        <p class="rep-text">それは私だけではありません。一緒に舞台を作ってくれた仲間もまた、自分の中にある葛藤や不安の殻を破ってこの公演に心血を注ぎました。</p>
-        <p class="rep-text">そんな仲間を誇りに思いますし、感謝の気持ちでいっぱいです。</p>
+        <p class="rep-text">そんな自分を誇りに思います。そして、仲間への感謝の気持ちでいっぱいです。</p>
         <p class="rep-text">この作品には、言葉だけでは伝えきれない想いを込めています。</p>
         <p class="rep-text">夢を諦めたことのある人へ。<br>今も「夢らしきもの」を抱えている人へ。</p>
         <p class="rep-quote">「負けるな　信じろ　自分次第さ」</p>
@@ -524,6 +551,54 @@
         document.body.classList.remove('menu-open');
       }));
     }
+    // Countdown
+    (function(){
+      var T1 = new Date('2026-07-05T12:00:00+09:00').getTime(); // 昼の部開演
+      var T2 = new Date('2026-07-05T13:30:00+09:00').getTime(); // 昼の部終演
+      var T3 = new Date('2026-07-05T17:00:00+09:00').getTime(); // 夜の部開演
+      var T4 = new Date('2026-07-05T18:30:00+09:00').getTime(); // 夜の部終演
+      var el = document.getElementById('countdown');
+      var elTitle = document.getElementById('cd-title');
+      var elPerf = document.getElementById('cd-perf');
+      var digits = el.querySelector('.cd-digits');
+      function setStatus(html){ el.innerHTML = '<p class="cd-status">'+html+'</p>'; }
+      function tick(){
+        var now = Date.now();
+        if(now < T1){
+          // 昼の部までカウントダウン
+          elTitle.textContent = '— 昼の部まで —';
+          elPerf.textContent = '7月5日　12:00公演 ／ 17:00公演';
+          digits.style.display='flex';
+          var diff = T1 - now;
+          var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), sc=Math.floor(diff%60000/1000);
+          document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+          document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+          document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+          document.getElementById('cd-s').textContent=String(sc).padStart(2,'0');
+        } else if(now < T2){
+          // 昼の部公演中
+          setStatus('昼の部 公演中');
+        } else if(now < T3){
+          // 夜の部までカウントダウン
+          elTitle.textContent = '— 夜の部まで —';
+          elPerf.textContent = '17:00公演';
+          digits.style.display='flex';
+          var diff = T3 - now;
+          var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), sc=Math.floor(diff%60000/1000);
+          document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+          document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+          document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+          document.getElementById('cd-s').textContent=String(sc).padStart(2,'0');
+        } else if(now < T4){
+          // 夜の部公演中
+          setStatus('夜の部 公演中');
+        } else {
+          // 公演終了
+          setStatus('ご来場ありがとうございました');
+        }
+      }
+      tick(); setInterval(tick,1000);
+    })();
     // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
